@@ -23,6 +23,8 @@ So when you use these capabilities of a large language model, please use it only
 
 因此，当你使用大型语言模型的这些功能时，请只在有助于人们的情况下负责任地使用它。在这个视频中，我们将通过一个例子来说明如何使用语言模型基于一些信息生成个性化的电子邮件。这封电子邮件被自称为来自AI机器人，正如安德鲁所提到的那样，这非常重要。
 
+![6-1](./imgs/6-1.png)
+
 ```
 We're also going to use another one of the models input parameters called temperature and this kind of allows you to vary the kind of degree of exploration and variety in the kind of models responses. So let's get into it. So before we get started we're going to kind of do the usual setup. So set up the OpenAI Python package and then also define our helper function getCompletion and now we're going to write a custom email response to a customer review and so given a customer review and the sentiment we're going to generate a custom response. 
 ```

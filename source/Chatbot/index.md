@@ -11,8 +11,6 @@
 chatgpt prompt：请帮我用中文进行全文翻译下面这段英文，并结构化输出为中文文本段落
 ```
 
-请帮我用中文进行全文翻译下面这段英文，并结构化输出为中文文本段落
-
 ```
 One of the exciting things about a large language model is you can use it to build a custom chatbot with only a modest amount of effort. ChatGPT, the web interface, is a way for you to have a conversational interface, a conversation via a large language model. But one of the cool things is you can also use a large language model to build your custom chatbot to maybe play the role of an AI customer service agent or an AI order taker for a restaurant. 
 ```
@@ -25,11 +23,15 @@ And in this video, you learn how to do that for yourself. I'm going to describe 
 
 在这个视频中，您将学习如何自己做到这一点。我将更详细地描述OpenAI ChatCompletions格式的组件，然后您将自己构建一个聊天机器人。那么让我们开始吧。首先，我们将像往常一样设置OpenAI Python包。聊天模型（如ChatGPT）实际上是被训练成将一系列消息作为输入，并返回由模型生成的消息作为输出。虽然聊天格式旨在使此类多轮对话变得容易，但我们已经通过以前的视频看到，它对于没有对话的单一任务同样有用。
 
+![1-1](./imgs/8-1.png)
+
 ```
  And so next, we're going to kind of define two helper functions. So this is the one that we've been using throughout all the videos, and it's the getCompletion function. But if you kind of look at it, we give a prompt, but then kind of inside the function, what we're actually doing is putting this prompt into what looks like some kind of user message. And this is because the ChatGPT model is a chat model, which means it's trained to take a series of messages as input and then return a model-generated message as output. So the user message is kind of the input, and then the assistant message is the output.
 ```
 
 下一步，我们将定义两个辅助函数。第一个是我们在所有视频中都使用的 getCompletion 函数。但是，如果你仔细看一下，我们给出了一个提示，但实际上在函数内部，我们是将这个提示放置到类似用户消息的消息中。这是因为 ChatGPT 模型是一个聊天模型，意味着它被训练成将一系列消息作为输入，然后返回一个由模型生成的消息作为输出。因此，用户消息是输入，而助手消息是输出。 第二个辅助函数是 generateResponse。这个函数将接受一个用户消息，并生成一个 ChatGPT 模型生成的相应助手消息。 通过这两个函数，我们能够与 AIGPT 模型进行交互并生成对话。
+
+![8-1](./imgs/8-2.png)
 
 ```
  So, in this video, we're going to actually use a different helper function, and instead of kind of putting a single prompt as input and getting a single completion, we're going to pass in a list of messages. And these messages can be kind of from a variety of different roles, so I'll describe those. So here's an example of a list of messages. And so, the first message is a system message, which kind of gives an overall instruction, and then after this message, we have kind of turns between the user and the assistant. And this would kind of continue to go on. And if you've ever used ChatGPT, the web interface, then your messages are the user messages, and then ChatGPT's messages are the assistant messages. So the system message helps to kind of set the behaviour and persona of the assistant, and it acts as kind of a high-level instruction for the conversation. 
@@ -55,6 +57,8 @@ So, here our messages are, uhm, the assistant message is, you're a friendly chat
 
 这里，我们的信息有两条，一条是助手的信息：你是一个友好的聊天机器人，另一条信息是用户的第一条反馈：嗨，我的名字是伊莎。我们想要获取用户的第一条信息。所以，让我们执行一下第一条助手信息。第一条反馈是：你好伊莎，很高兴见到你。你今天需要我的帮助吗？现在，让我们尝试另一个例子。这里我们的信息还是有两条，一条是系统信息：你是一个友好的聊天机器人，另一条信息是第一条用户反馈：是的，你能提醒我我的名字是什么吗？我们想要得到回应。然而，你会发现，这个模型实际上还不知道我的名字。所以，每一次与语言模型的交互都是独立的。这意味着，在当前的交互中，你必须提供所有相关的信息，供模型从中获取。如果你想让模型在交互中从先前的对话中获取信息，你必须将之前的对话作为输入提供给模型，我们称之为“上下文”。
 
+![8-1](./imgs/8-3.png)
+
 ```
 So, let's try this. So, now we've kind of given the context that the model needs, uhm, which is my name in the previous messages and we'll ask the same question, so we'll ask what my name is. And the model is able to respond because it has all of the context it needs, uhm, in this kind of list of messages that we input to it. So now you're going to build your own chatbot. This chatbot is going to be called orderbot, and we're going to automate the collection of user prompts and assistant responses in order to build this orderbot. And it's going to take orders at a pizza restaurant, so first we're going to define this helper function, and what this is doing is it's going to kind of collect our user messages so we can avoid typing them in by hand in the same, in the way that we did above, and this is going to kind of collect prompts from a user interface that will build below, and then append it to a list called context, and then it will call the model with that context every time. 
 ```
@@ -66,6 +70,8 @@ And the model response is then also added to the context, so the kind of model m
 ```
 
 模型的回应也会添加到上下文中，也就是说，模型的反馈信息也会添加到上下文中，用户的反馈信息也会添加到上下文中，类似这样，这个上下文会变得越来越长。这样一来，模型就拥有了它所需的信息，来决定下一步该怎么做。现在我们将设置并运行这个用户界面来展示订餐机器人，这里的上下文包含了系统信息，其中包含了菜单。需要注意的是，每次调用语言模型时，我们都将使用相同的上下文，并且上下文会随着时间越来越完整。现在，让我们来执行它。
+
+![8-1](./imgs/8-4.png)
 
 ```
 Okay, I'm going to say, hi, I would like to order a pizza. And the assistant says, great, what pizza would you like to order? We have pepperoni, cheese, and eggplant pizza. How much are they? Great, okay, we have the prices. I think I'm feeling a medium eggplant pizza. So as you can imagine, we could kind of continue this conversation, and let's kind of look at what we've put in the system message. So you are order bot, an automated service to collect orders for a pizza restaurant. You first greet the customer, then collect the order, and then ask if it's a pickup or delivery. 

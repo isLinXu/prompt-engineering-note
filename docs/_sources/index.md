@@ -1,6 +1,15 @@
 # prompt-engineering-note
 
+
+
+![banner](https://user-images.githubusercontent.com/59380685/235316290-9a297ce3-ba65-4e66-ae02-f7b62cd42210.png)
+
 ---
+
+![GitHub watchers](https://img.shields.io/github/watchers/isLinXu/prompt-engineering-note.svg?style=social) ![GitHub stars](https://img.shields.io/github/stars/isLinXu/prompt-engineering-note.svg?style=social) ![GitHub forks](https://img.shields.io/github/forks/isLinXu/prompt-engineering-note.svg?style=social) ![GitHub followers](https://img.shields.io/github/followers/isLinXu.svg?style=social)
+ [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fatrox%2Fsync-dotenv%2Fbadge&style=flat)](https://github.com/isLinXu/prompt-engineering-note)  ![img](https://badgen.net/badge/icon/learning?icon=deepscan&label)![GitHub repo size](https://img.shields.io/github/repo-size/isLinXu/prompt-engineering-note.svg?style=flat-square) ![GitHub language count](https://img.shields.io/github/languages/count/isLinXu/prompt-engineering-note)  ![GitHub last commit](https://img.shields.io/github/last-commit/isLinXu/prompt-engineering-note) 
+
+- 课程视频-> [![bilibili](https://img.shields.io/badge/dynamic/json?label=views&style=social&logo=bilibili&query=data.stat.view&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fview%3Fbvid%3DBV1vM4y1U7b5)](https://www.bilibili.com/video/BV1No4y1t7Zn/)[![](https://img.shields.io/youtube/views/K0SZ9mdygTw?style=social)](https://learn.deeplearning.ai/chatgpt-prompt-eng)(点击图标即可播放)
 
 ## 介绍
 
@@ -62,13 +71,27 @@ apps/index.md
 
   <img width="824" alt="sum_context" src="https://user-images.githubusercontent.com/59380685/235310262-b82a8243-3e72-4a12-b36a-ef24206c563e.png" style="zoom:50%;" >
 
-- 3.整理了实践过程中对应的jupyterbook代码，（可以在本地化部署环境运行）；
+- 3.整理了实践过程中对应的jupyterbook代码，位置在： [jb_code](./jb_code) （可以在本地化部署环境运行）；
 
   <img width="1235" alt="jb_code" src="https://user-images.githubusercontent.com/59380685/235310289-7f787cfd-2277-4722-97f8-2f30605321f6.png" style="zoom:50%;" >
 
- 
+- 4.基于notebook代码制作shell的cli命令脚本(更新中)
+
+- 5.整理了提示工程相关的awesome的项目清单(更新中)
 
 - ... ...
+
+
+
+## 致谢
+
+- https://learn.deeplearning.ai/chatgpt-prompt-eng/
+- https://github.com/openai/openai-cookbook
+- https://github.com/openai/openai-python
+- https://github.com/openai/chatgpt-retrieval-plugin
+- https://learnwithhasan.com/prompt-engineering-guide/
+
+
 
 
 

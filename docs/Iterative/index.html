@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3.提示工程需要迭代 &#8212; 提示工程笔记</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Iterative/index';</script>
+    <link rel="shortcut icon" href="../_static/panda.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.总结类应用" href="../Summarizing/index.html" />
+    <link rel="prev" title="2.提示工程关键原则" href="../Guidelines/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Introduction/index.html">1.课程简介</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Guidelines/index.html">2.提示工程关键原则</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3.提示工程需要迭代</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Summarizing/index.html">4.总结类应用</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Inferring/index.html">5.推理类应用</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Transforming/index.html">6.转换类应用</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Expanding/index.html">7.扩展类应用</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chatbot/index.html">8.打造聊天机器人</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Conclusion/index.html">9.课程总结</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">10.projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apps/index.html">11.apps</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/isLinXu/prompt-engineering-note" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/isLinXu/prompt-engineering-note/edit/main/Iterative/index.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/isLinXu/prompt-engineering-note/issues/new?title=Issue%20on%20page%20%2FIterative/index.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Iterative/index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.提示工程需要迭代</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="id1">
+<h1>3.提示工程需要迭代<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chatgpt prompt：请帮我用中文进行全文翻译下面这段英文，并结构化输出为中文文本段落
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">When</span> <span class="n">I</span><span class="s1">&#39;ve been building applications with large language models, I don&#39;</span><span class="n">t</span> <span class="n">think</span> <span class="n">I</span><span class="s1">&#39;ve ever come to the prompt that I ended up using in the final application on my first attempt. And this isn&#39;</span><span class="n">t</span> <span class="n">what</span> <span class="n">matters</span><span class="o">.</span> <span class="n">As</span> <span class="n">long</span> <span class="k">as</span> <span class="n">you</span> <span class="n">have</span> <span class="n">a</span> <span class="n">good</span> <span class="n">process</span> <span class="n">to</span> <span class="n">iteratively</span> <span class="n">make</span> <span class="n">your</span> <span class="n">prompt</span> <span class="n">better</span><span class="p">,</span> <span class="n">then</span> <span class="n">you</span><span class="s1">&#39;ll be able to come to something that works well for the task you want to achieve. You may have heard me say that when I train a machine learning model, it almost never works the first time. In fact, I&#39;</span><span class="n">m</span> <span class="n">very</span> <span class="n">surprised</span> <span class="k">if</span> <span class="n">the</span> <span class="n">first</span> <span class="n">model</span> <span class="n">I</span> <span class="n">train</span> <span class="n">works</span><span class="o">.</span> <span class="n">I</span> <span class="n">think</span> <span class="n">we</span><span class="s1">&#39;re prompting, the odds of it working the first time is maybe a little bit higher, but as he&#39;</span><span class="n">s</span> <span class="n">saying</span><span class="p">,</span> <span class="n">it</span> <span class="n">doesn</span><span class="s1">&#39;t matter if the first prompt works. What matters most is the process for getting to the prompts that work for your application. So with that, let&#39;</span><span class="n">s</span> <span class="n">jump</span> <span class="n">into</span> <span class="n">the</span> <span class="n">code</span> <span class="ow">and</span> <span class="n">let</span> <span class="n">me</span> <span class="n">show</span> <span class="n">you</span> <span class="n">some</span> <span class="n">frameworks</span> <span class="n">to</span> <span class="n">think</span> <span class="n">about</span> <span class="n">how</span> <span class="n">to</span> <span class="n">iteratively</span> <span class="n">develop</span> <span class="n">a</span> <span class="n">prompt</span><span class="o">.</span> <span class="n">Alright</span><span class="p">,</span> <span class="n">so</span> <span class="k">if</span> <span class="n">you</span><span class="s1">&#39;ve taken a machine learning class with me, before you may have seen me use a diagram saying that with machine learning development, you often have an idea and then implement it.</span>
+</pre></div>
+</div>
+<p>当我使用大型语言模型构建应用程序时，我认为我从来没有在第一次尝试中使用最终应用程序中使用的提示。这并不重要。只要您有一个良好的迭代过程来改进提示，那么你就能够找到对完成所需任务的好提示。您可能已经听我说过，当我训练机器学习模型时，它几乎从不在第一次工作。事实上，如果我第一次训练的模型能工作，我会非常惊讶。我认为在提示时，第一次能够得到有效结果的机会可能会更高一些，但与他所说的一样，第一个提示是否有效并不重要。最重要的是找到适合您的应用程序使用的提示的过程。因此，让我们进入代码中，让我展示一些框架，以思考如何迭代开发提示。好的，所以如果您以前曾与我一起上过机器学习课程，您可能会看到我使用的图表，即在机器学习开发中，您通常有一个想法，然后实现它。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">So</span> <span class="n">write</span> <span class="n">the</span> <span class="n">code</span><span class="p">,</span> <span class="n">get</span> <span class="n">the</span> <span class="n">data</span><span class="p">,</span> <span class="n">train</span> <span class="n">your</span> <span class="n">model</span><span class="p">,</span> <span class="ow">and</span> <span class="n">that</span> <span class="n">gives</span> <span class="n">you</span> <span class="n">an</span> <span class="n">experimental</span> <span class="n">result</span><span class="o">.</span> <span class="n">And</span> <span class="n">you</span> <span class="n">can</span> <span class="n">then</span> <span class="n">look</span> <span class="n">at</span> <span class="n">that</span> <span class="n">output</span><span class="p">,</span> <span class="n">maybe</span> <span class="n">do</span> <span class="n">error</span> <span class="n">analysis</span><span class="p">,</span> <span class="n">figure</span> <span class="n">out</span> <span class="n">where</span> <span class="n">it</span><span class="s1">&#39;s working or not working, and then maybe even change your idea of exactly what problem you want to solve or how to approach it, and then change your implementation and run another experiment and so on, and iterate over and over to get to an effective machine learning model. If you&#39;</span><span class="n">re</span> <span class="ow">not</span> <span class="n">familiar</span> <span class="k">with</span> <span class="n">machine</span> <span class="n">learning</span> <span class="ow">and</span> <span class="n">haven</span><span class="s1">&#39;t seen this diagram before, don&#39;</span><span class="n">t</span> <span class="n">worry</span> <span class="n">about</span> <span class="n">it</span><span class="p">,</span> <span class="ow">not</span> <span class="n">that</span> <span class="n">important</span> <span class="k">for</span> <span class="n">the</span> <span class="n">rest</span> <span class="n">of</span> <span class="n">this</span> <span class="n">presentation</span><span class="o">.</span> 
+</pre></div>
+</div>
+<p>因此，编写代码、获取数据、训练模型，这将给您带来实验结果。然后您可以查看该输出，进行误差分析，找出工作或不工作的地方，然后甚至可以更改您解决问题的确切想法或方法，再更改您的实现并运行另一个实验等等，不断迭代，以获得有效的机器学习模型。如果您不熟悉机器学习并且以前未见过此图表，则不用担心，对于本演示的其余内容并不重要。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">But</span> <span class="n">when</span> <span class="n">you</span> <span class="n">are</span> <span class="n">writing</span> <span class="n">prompts</span> <span class="n">to</span> <span class="n">develop</span> <span class="n">an</span> <span class="n">application</span> <span class="n">using</span> <span class="n">an</span> <span class="n">OOM</span><span class="p">,</span> <span class="n">the</span> <span class="n">process</span> <span class="n">can</span> <span class="n">be</span> <span class="n">quite</span> <span class="n">similar</span> <span class="n">where</span> <span class="n">you</span> <span class="n">have</span> <span class="n">an</span> <span class="n">idea</span> <span class="k">for</span> <span class="n">what</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">do</span><span class="p">,</span> <span class="n">the</span> <span class="n">task</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">complete</span><span class="p">,</span> <span class="ow">and</span> <span class="n">you</span> <span class="n">can</span> <span class="n">then</span> <span class="n">take</span> <span class="n">a</span> <span class="n">first</span> <span class="n">attempt</span> <span class="n">at</span> <span class="n">writing</span> <span class="n">a</span> <span class="n">prompt</span> <span class="n">that</span> <span class="n">hopefully</span> <span class="ow">is</span> <span class="n">clear</span> <span class="ow">and</span> <span class="n">specific</span> <span class="ow">and</span> <span class="n">maybe</span><span class="p">,</span> <span class="k">if</span> <span class="n">appropriate</span><span class="p">,</span> <span class="n">gives</span> <span class="n">the</span> <span class="n">system</span> <span class="n">time</span> <span class="n">to</span> <span class="n">think</span><span class="p">,</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">you</span> <span class="n">can</span> <span class="n">run</span> <span class="n">it</span> <span class="ow">and</span> <span class="n">see</span> <span class="n">what</span> <span class="n">result</span> <span class="n">you</span> <span class="n">get</span><span class="o">.</span> <span class="n">And</span> <span class="k">if</span> <span class="n">it</span> <span class="n">doesn</span><span class="s1">&#39;t work well enough the first time, then the iterative process of figuring out why the instructions, for example, were not clear enough or why it didn&#39;</span><span class="n">t</span> <span class="n">give</span> <span class="n">the</span> <span class="n">algorithm</span> <span class="n">enough</span> <span class="n">time</span> <span class="n">to</span> <span class="n">think</span><span class="p">,</span> <span class="n">allows</span> <span class="n">you</span> <span class="n">to</span> <span class="n">refine</span> <span class="n">the</span> <span class="n">idea</span><span class="p">,</span> <span class="n">refine</span> <span class="n">the</span> <span class="n">prompt</span><span class="p">,</span> <span class="ow">and</span> <span class="n">so</span> <span class="n">on</span><span class="p">,</span> <span class="ow">and</span> <span class="n">to</span> <span class="n">go</span> <span class="n">around</span> <span class="n">this</span> <span class="n">loop</span> <span class="n">multiple</span> <span class="n">times</span> <span class="n">until</span> <span class="n">you</span> <span class="n">end</span> <span class="n">up</span> <span class="k">with</span> <span class="n">a</span> <span class="n">prompt</span> <span class="n">that</span> <span class="n">works</span> <span class="k">for</span> <span class="n">your</span> <span class="n">application</span><span class="o">.</span> 
+</pre></div>
+</div>
+<p>但是当您编写使用OOM开发应用程序的提示时，该流程可能会非常类似，您有一个想法，想要完成的任务，然后可以尝试编写第一个提示，希望它的表述清晰具体，并且如果合适，可以给系统一些时间进行思考，然后运行它并查看结果。如果第一次效果不好，则迭代的过程中可以找出原因，例如：指示不够清晰或算法没有足够的时间进行思考，从而充实思路、改进提示，如此循环多次，直到开发应用程序所需的提示得以完成。</p>
+<p>请帮我用中文进行全文翻译下面这段英文，并结构化输出为中文文本段落</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="n">too</span> <span class="ow">is</span> <span class="n">why</span> <span class="n">I</span> <span class="n">personally</span> <span class="n">have</span> <span class="ow">not</span> <span class="n">paid</span> <span class="k">as</span> <span class="n">much</span> <span class="n">attention</span> <span class="n">to</span> <span class="n">the</span> <span class="n">internet</span> <span class="n">articles</span> <span class="n">that</span> <span class="n">say</span> <span class="mi">30</span> <span class="n">perfect</span> <span class="n">prompts</span><span class="p">,</span> <span class="n">because</span> <span class="n">I</span> <span class="n">think</span> <span class="n">there</span> <span class="n">probably</span> <span class="n">isn</span><span class="s1">&#39;t a perfect prompt for everything under the sun. It&#39;</span><span class="n">s</span> <span class="n">more</span> <span class="n">important</span> <span class="n">that</span> <span class="n">you</span> <span class="n">have</span> <span class="n">a</span> <span class="n">process</span> <span class="k">for</span> <span class="n">developing</span> <span class="n">a</span> <span class="n">good</span> <span class="n">prompt</span> <span class="k">for</span> <span class="n">your</span> <span class="n">specific</span> <span class="n">application</span><span class="o">.</span> <span class="n">So</span> <span class="n">let</span><span class="s1">&#39;s look at an example together in code. I have here the starter code that you saw in the previous videos, have been port open AI and port OS. Here we get the open AI API key, and this is the same helper function that you saw as last time. And I&#39;</span><span class="n">m</span> <span class="n">going</span> <span class="n">to</span> <span class="n">use</span> <span class="k">as</span> <span class="n">the</span> <span class="n">running</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">video</span> <span class="n">the</span> <span class="n">task</span> <span class="n">of</span> <span class="n">summarizing</span> <span class="n">a</span> <span class="n">fact</span> <span class="n">sheet</span> <span class="k">for</span> <span class="n">a</span> <span class="n">chair</span><span class="o">.</span> <span class="n">So</span> <span class="n">let</span> <span class="n">me</span> <span class="n">just</span> <span class="n">paste</span> <span class="n">that</span> <span class="ow">in</span> <span class="n">here</span><span class="o">.</span> <span class="n">Feel</span> <span class="n">free</span> <span class="n">to</span> <span class="n">pause</span> <span class="n">the</span> <span class="n">video</span> <span class="ow">and</span> <span class="n">read</span> <span class="n">this</span> <span class="n">more</span> <span class="n">carefully</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">notebook</span> <span class="n">on</span> <span class="n">the</span> <span class="n">left</span> <span class="k">if</span> <span class="n">you</span> <span class="n">want</span><span class="o">.</span> <span class="n">But</span> <span class="n">here</span><span class="s1">&#39;s a fact sheet for a chair with a description saying it&#39;</span><span class="n">s</span> <span class="n">part</span> <span class="n">of</span> <span class="n">a</span> <span class="n">beautiful</span> <span class="n">family</span> <span class="n">of</span> <span class="n">mid</span><span class="o">-</span><span class="n">century</span> <span class="n">inspired</span><span class="p">,</span> <span class="ow">and</span> <span class="n">so</span> <span class="n">on</span><span class="o">.</span> 
+</pre></div>
+</div>
+<p>这也是为什么我个人没有过多关注互联网文章中的“30个完美提示”的原因，因为我认为可能没有适用于所有情况的完美提示。开发一个适用于您特定应用程序的好提示的流程比任何其他事情都更重要。让我们一起在代码示例中看一个例子。这里是你在之前视频中看到的入门代码，已经将其转移到了open AI 和OS。这里我们获取了open AI API密钥，这是与上一次相同的帮助器函数。在本视频中，我将使用概括椅子信息单的任务作为运行示例。让我将它粘贴到这里。如果您想要更仔细地阅读，请随时暂停左侧笔记本中的视频并仔细阅读。但是这是一张关于一把椅子的信息单，其中描述说它是一个美丽的中世纪灵感家庭的一部分，等等。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Talks</span> <span class="n">about</span> <span class="n">the</span> <span class="n">construction</span><span class="p">,</span> <span class="n">has</span> <span class="n">the</span> <span class="n">dimensions</span><span class="p">,</span> <span class="n">options</span> <span class="k">for</span> <span class="n">the</span> <span class="n">chair</span><span class="p">,</span> <span class="n">materials</span><span class="p">,</span> <span class="ow">and</span> <span class="n">so</span> <span class="n">on</span><span class="o">.</span> <span class="n">Comes</span> <span class="kn">from</span> <span class="nn">Italy.</span> <span class="n">So</span> <span class="n">let</span><span class="s1">&#39;s say you want to take this fact sheet and help a marketing team write a description for an online retail website. as follows, and I&#39;</span><span class="n">ll</span> <span class="n">just</span><span class="o">...</span> <span class="ow">and</span> <span class="n">I</span><span class="s1">&#39;ll just paste this in, so my prompt here says your task is to help a marketing team create the description for retail website or product based on a techno fact sheet, write a product description, and so on. Right? So this is my first attempt to explain the task to the large-language model. So let me hit shift enter, and this takes a few seconds to run, and we get this result. It looks like it&#39;</span><span class="n">s</span> <span class="n">done</span> <span class="n">a</span> <span class="n">nice</span> <span class="n">job</span> <span class="n">writing</span> <span class="n">a</span> <span class="n">description</span><span class="p">,</span> <span class="n">introducing</span> <span class="n">a</span> <span class="n">stunning</span> <span class="n">mid</span><span class="o">-</span><span class="n">century</span> <span class="n">inspired</span> <span class="n">office</span> <span class="n">chair</span><span class="p">,</span> <span class="n">perfect</span> <span class="n">edition</span><span class="p">,</span> <span class="ow">and</span> <span class="n">so</span> <span class="n">on</span><span class="p">,</span> <span class="n">but</span> <span class="n">when</span> <span class="n">I</span> <span class="n">look</span> <span class="n">at</span> <span class="n">this</span><span class="p">,</span> <span class="n">I</span> <span class="n">go</span><span class="p">,</span> <span class="n">boy</span><span class="p">,</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">really</span> <span class="n">long</span><span class="o">.</span> <span class="n">It</span><span class="s1">&#39;s done a nice job doing exactly what I asked it to, which is start from the technical fact sheet and write a product description. </span>
+</pre></div>
+</div>
+<p>介绍了椅子的制造方式、尺寸、选项、材料等问题。这款椅子来自意大利。假设你想拿这张信息单来帮助营销团队编写一个在线零售网址的描述，像这样……我将它粘贴进来，所以我的提示是：您的任务是基于技术信息单，帮助营销团队为零售网站或产品创建描述，撰写产品描述等。对吧？这是我第一次尝试向大型语言模型解释这个任务。所以，我按下Shift+Enter，这需要几秒钟的时间来运行，我们得到了这个结果。它看起来做得很好，写了一个描述，介绍了一个令人惊叹的中世纪灵感办公椅，完美的版本等等，但当我看到这个结果时，我会说，哇，这真的很长。它做得非常好，准确地完成了我所要求的工作，也就是从技术信息单入手撰写产品描述。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">But</span> <span class="n">when</span> <span class="n">I</span> <span class="n">look</span> <span class="n">at</span> <span class="n">this</span><span class="p">,</span> <span class="n">I</span> <span class="n">go</span><span class="p">,</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">kind</span> <span class="n">of</span> <span class="n">long</span><span class="o">.</span> <span class="n">Maybe</span> <span class="n">we</span> <span class="n">want</span> <span class="n">it</span> <span class="n">to</span> <span class="n">be</span> <span class="n">a</span> <span class="n">little</span> <span class="n">bit</span> <span class="n">shorter</span><span class="o">.</span> <span class="n">So</span> <span class="n">I</span> <span class="n">have</span> <span class="n">had</span> <span class="n">an</span> <span class="n">idea</span><span class="o">.</span> <span class="n">I</span> <span class="n">wrote</span> <span class="n">a</span> <span class="n">prompt</span><span class="p">,</span> <span class="n">got</span> <span class="n">the</span> <span class="n">result</span><span class="o">.</span> <span class="n">I</span><span class="s1">&#39;m not that happy with it because it&#39;</span><span class="n">s</span> <span class="n">too</span> <span class="n">long</span><span class="p">,</span> <span class="n">so</span> <span class="n">I</span> <span class="n">will</span> <span class="n">then</span> <span class="n">clarify</span> <span class="n">my</span> <span class="n">prompt</span> <span class="ow">and</span> <span class="n">say</span> <span class="n">use</span> <span class="n">at</span> <span class="n">most</span> <span class="mi">50</span> <span class="n">words</span> <span class="n">to</span> <span class="k">try</span> <span class="n">to</span> <span class="n">give</span> <span class="n">better</span> <span class="n">guidance</span> <span class="n">on</span> <span class="n">the</span> <span class="n">desired</span> <span class="n">length</span> <span class="n">of</span> <span class="n">this</span><span class="p">,</span> <span class="ow">and</span> <span class="n">let</span><span class="s1">&#39;s run it again. Okay, this actually looks like a much nicer short description of the product, introducing a mid-century inspired office chair, and so on, five you just, yeah, both stylish and practical. Not bad. And let me double check the length that this is. So I&#39;</span><span class="n">m</span> <span class="n">going</span> <span class="n">to</span> <span class="n">take</span> <span class="n">the</span> <span class="n">response</span><span class="p">,</span> <span class="n">split</span> <span class="n">it</span> <span class="n">according</span> <span class="n">to</span> <span class="n">where</span> <span class="n">the</span> <span class="n">space</span> <span class="ow">is</span><span class="p">,</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">you</span><span class="s1">&#39;ll print out the length. So it&#39;</span><span class="n">s</span> <span class="mi">52</span> <span class="n">words</span><span class="o">.</span> <span class="n">Actually</span> <span class="ow">not</span> <span class="n">bad</span><span class="o">.</span> <span class="n">Large</span> <span class="n">language</span> <span class="n">models</span> <span class="n">are</span> <span class="n">okay</span><span class="p">,</span> <span class="n">but</span> <span class="ow">not</span> <span class="n">that</span> <span class="n">great</span> <span class="n">at</span> <span class="n">following</span> <span class="n">instructions</span> <span class="n">about</span> <span class="n">a</span> <span class="n">very</span> <span class="n">precise</span> <span class="n">word</span> <span class="n">count</span><span class="p">,</span> <span class="n">but</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">actually</span> <span class="ow">not</span> <span class="n">bad</span><span class="o">.</span> <span class="n">Sometimes</span> <span class="n">it</span> <span class="n">will</span> <span class="nb">print</span> <span class="n">out</span> <span class="n">something</span> <span class="k">with</span> <span class="mi">60</span> <span class="ow">or</span> <span class="mi">65</span> <span class="ow">and</span> <span class="n">so</span> <span class="n">on</span> <span class="n">words</span><span class="p">,</span> <span class="n">but</span> <span class="n">it</span><span class="s1">&#39;s kind of within reason. Some of the things you Let me run that again. </span>
+</pre></div>
+</div>
+<p>但是当我看到结果时，我会说，这结果太长了。也许我们希望它短一点。那么，我有了一个想法。我写了一条提示，得到了结果。但是我对结果不是很满意，因为它太长了，所以我将澄清我的提示，并说使用最多50个单词来尝试更好地指导所需的长度，并让我们再次运行它。好的，这看起来是一个非常好的产品简短描述，介绍了一个中世纪灵感的办公椅等等，是一个既时尚又实用的椅子。不错。让我再次检查一下它的长度。所以我将回答分割成单词，然后打印出长度。它是52个单词，其实不错。大型语言模型在遵循非常精确的单词计数方面不是那么出色，但它实际上表现得不错。有时它会打印出60或65个单词的内容，但它是合理的。其中一些我再跑一次。</p>
+<p>请帮我用中文进行全文翻译下面这段英文，并结构化输出为中文文本段落</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">But</span> <span class="n">these</span> <span class="n">are</span> <span class="n">different</span> <span class="n">ways</span> <span class="n">to</span> <span class="n">tell</span> <span class="n">the</span> <span class="n">large</span><span class="o">-</span><span class="n">language</span> <span class="n">model</span> <span class="n">what</span><span class="s1">&#39;s the length of the output that you want. So this is one, two, three. I count these sentences. Looks like I did a pretty good job. And then I&#39;</span><span class="n">ve</span> <span class="n">also</span> <span class="n">seen</span> <span class="n">people</span> <span class="n">sometimes</span> <span class="n">do</span> <span class="n">things</span> <span class="n">like</span><span class="p">,</span> <span class="n">I</span> <span class="n">don</span><span class="s1">&#39;t know, use at most 280 characters. Large-language models, because of the way they interpret text, using something called a tokenizer, which I won&#39;</span><span class="n">t</span> <span class="n">talk</span> <span class="n">about</span><span class="o">.</span> <span class="n">But</span> <span class="n">they</span> <span class="n">tend</span> <span class="n">to</span> <span class="n">be</span> <span class="n">so</span><span class="o">-</span><span class="n">so</span> <span class="n">at</span> <span class="n">counting</span> <span class="n">characters</span><span class="o">.</span> <span class="n">But</span> <span class="n">let</span><span class="s1">&#39;s see, 281 characters. It&#39;</span><span class="n">s</span> <span class="n">actually</span> <span class="n">surprisingly</span> <span class="n">close</span><span class="o">.</span> <span class="n">Usually</span> <span class="n">a</span> <span class="n">large</span><span class="o">-</span><span class="n">language</span> <span class="n">model</span> <span class="n">doesn</span><span class="s1">&#39;t get it quite this close. But these are different ways they can play with to try to control the length of the output that you get. But then just switch it back to use at most 50 words. And that&#39;</span><span class="n">s</span> <span class="n">that</span> <span class="n">result</span> <span class="n">that</span> <span class="n">we</span> <span class="n">had</span> <span class="n">just</span> <span class="n">now</span><span class="o">.</span> <span class="n">As</span> <span class="n">we</span> <span class="k">continue</span> <span class="n">to</span> <span class="n">refine</span> <span class="n">this</span> <span class="n">text</span> <span class="k">for</span> <span class="n">our</span> <span class="n">website</span><span class="p">,</span> <span class="n">we</span> <span class="n">might</span> <span class="n">decide</span> <span class="n">that</span><span class="p">,</span> <span class="n">boy</span><span class="p">,</span> <span class="n">this</span> <span class="n">website</span> <span class="n">isn</span><span class="s1">&#39;t selling direct to consumers, it&#39;</span><span class="n">s</span> <span class="n">actually</span> <span class="n">intended</span> <span class="n">to</span> <span class="n">sell</span> <span class="n">furniture</span> <span class="n">to</span> <span class="n">furniture</span> <span class="n">retailers</span> <span class="n">that</span> <span class="n">would</span> <span class="n">be</span> <span class="n">more</span> <span class="n">interested</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">technical</span> <span class="n">details</span> <span class="n">of</span> <span class="n">the</span> <span class="n">chair</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">materials</span> <span class="n">of</span> <span class="n">the</span> <span class="n">chair</span><span class="o">.</span> 
+</pre></div>
+</div>
+<p>但是这些是告诉大型语言模型你想要的输出长度的不同方式。所以这是一种，两种，三种。我数了一下这些句子。看起来我做得相当不错。然后我还看到有人有时会做一些事情，比如说，不知道，最多使用280个字符。大型语言模型，由于它们解释文本的方式，使用一种称为分词器的东西，我不会讲。但是它们倾向于在计算字符数量方面表现一般。但是，看看281个字符。这实际上相当接近。通常情况下，大型语言模型不太可能准确预测长度。但这些是他们可以玩耍的不同方式，以尝试控制您获得的输出长度。但是，只需将其切换回最多使用50个单词即可。那就是我们刚才得到的结果。随着我们继续为网站完善这段文本，我们可能会决定，哇，这个网站并不是直接面向消费者销售，实际上是旨在向家具零售商销售家具，他们更关注椅子的技术细节和椅子的材料。</p>
+<p>请帮我用中文进行全文翻译下面这段英文，并结构化输出为中文文本段落</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="n">that</span> <span class="n">case</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">take</span> <span class="n">this</span> <span class="n">prompt</span> <span class="ow">and</span> <span class="n">say</span><span class="p">,</span> <span class="n">I</span> <span class="n">want</span> <span class="n">to</span> <span class="n">modify</span> <span class="n">this</span> <span class="n">prompt</span> <span class="n">to</span> <span class="n">get</span> <span class="n">it</span> <span class="n">to</span> <span class="n">be</span> <span class="n">more</span> <span class="n">precise</span> <span class="n">about</span> <span class="n">the</span> <span class="n">technical</span> <span class="n">details</span><span class="o">.</span> <span class="n">So</span> <span class="n">let</span> <span class="n">me</span> <span class="n">keep</span> <span class="n">on</span> <span class="n">modifying</span> <span class="n">this</span> <span class="n">prompt</span><span class="o">.</span> <span class="n">And</span> <span class="n">I</span><span class="s1">&#39;m going to say, this description is intended for furniture retailers, so it should be technical and focus on materials, products and constructs it from. Well, let&#39;</span><span class="n">s</span> <span class="n">run</span> <span class="n">that</span><span class="o">.</span> <span class="n">And</span> <span class="n">let</span><span class="s1">&#39;s see. Not bad. It says, coated aluminum base and pneumatic chair. High-quality materials. So by changing the prompt, you can get it to focus more on specific characters, on specific characteristics you want it to. And when I look at this, I might decide, hmm, at the end of the description, I also wanted to include the product ID. So the two offerings of this chair, SWC 110, SOC 100. </span>
+</pre></div>
+</div>
+<p>在这种情况下，您可以采取这个提示并说，我想修改这个提示，使其更加精确地描述技术细节。所以让我继续修改这个提示。我会说，这种描述是为家具零售商而设计的，因此它应该是技术性的，重点是材料、产品和构造。嗯，让我们运行一下。让我们看看。还不错。它说，铝制底座和气动椅。高质量的材料。所以通过改变提示，您可以使其更加专注于您想要的特定特征。当我看到这个时，我可以决定，在描述的末尾，我也想包括产品ID。所以这把椅子有两种款式，其中 SWC 110 和 SOC 100 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">So</span> <span class="n">maybe</span> <span class="n">I</span> <span class="n">can</span> <span class="n">further</span> <span class="n">improve</span> <span class="n">this</span> <span class="n">prompt</span><span class="o">.</span> <span class="n">And</span> <span class="n">to</span> <span class="n">get</span> <span class="n">it</span> <span class="n">to</span> <span class="n">give</span> <span class="n">me</span> <span class="n">the</span> <span class="n">product</span> <span class="n">IDs</span><span class="p">,</span> <span class="n">I</span> <span class="n">can</span> <span class="n">add</span> <span class="n">this</span> <span class="n">instruction</span> <span class="n">at</span> <span class="n">the</span> <span class="n">end</span> <span class="n">of</span> <span class="n">the</span> <span class="n">description</span><span class="p">,</span> <span class="n">include</span> <span class="n">every</span> <span class="mi">7</span> <span class="n">character</span> <span class="n">product</span> <span class="n">ID</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">technical</span> <span class="n">specification</span><span class="o">.</span> <span class="n">And</span> <span class="n">let</span><span class="s1">&#39;s run it and see what happens. And so it says, introduce you to our mid-century inspired office chair, shell colors, talks about plastic coating aluminum base, practical, some options, talks about the two product IDs. So this looks pretty good. And what you&#39;</span><span class="n">ve</span> <span class="n">just</span> <span class="n">seen</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">short</span> <span class="n">example</span> <span class="n">of</span> <span class="n">the</span> <span class="n">iterative</span> <span class="n">prompt</span> <span class="n">development</span> <span class="n">that</span> <span class="n">many</span> <span class="n">developers</span> <span class="n">will</span> <span class="n">go</span> <span class="n">through</span><span class="o">.</span> 
+</pre></div>
+</div>
+<p>所以也许我可以进一步改进这个提示。为了让它给我产品ID，我可以在描述的末尾添加这个指令：在技术规格中包括每7个字符一个产品ID。让我们运行一下，看看会发生什么。它说，向您介绍我们的中世纪风格办公椅，外壳颜色，讨论塑料涂层铝制底座，实用，一些选项，讨论两种产品ID。所以这看起来相当不错。您刚刚看到的是许多开发人员将经历的迭代提示开发的一个简短示例。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">And</span> <span class="n">I</span> <span class="n">think</span> <span class="n">a</span> <span class="n">guideline</span> <span class="ow">is</span><span class="p">,</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">last</span> <span class="n">video</span><span class="p">,</span> <span class="n">you</span> <span class="n">saw</span> <span class="n">Yisa</span> <span class="n">share</span> <span class="n">a</span> <span class="n">number</span> <span class="n">of</span> <span class="n">best</span> <span class="n">practices</span><span class="o">.</span> <span class="n">And</span> <span class="n">so</span> <span class="n">what</span> <span class="n">I</span> <span class="n">usually</span> <span class="n">do</span> <span class="ow">is</span> <span class="n">keep</span> <span class="n">best</span> <span class="n">practices</span> <span class="n">like</span> <span class="n">that</span> <span class="ow">in</span> <span class="n">mind</span><span class="p">,</span> <span class="n">be</span> <span class="n">clear</span> <span class="ow">and</span> <span class="n">specific</span><span class="p">,</span> <span class="ow">and</span> <span class="k">if</span> <span class="n">necessary</span><span class="p">,</span> <span class="n">give</span> <span class="n">the</span> <span class="n">model</span> <span class="n">time</span> <span class="n">to</span> <span class="n">think</span><span class="o">.</span> <span class="n">With</span> <span class="n">those</span> <span class="ow">in</span> <span class="n">mind</span><span class="p">,</span> <span class="n">it</span><span class="s1">&#39;s worthwhile to often take a first attempt at writing a prompt, see what happens, and then go from there to iteratively refine the prompt to get closer and closer to the result that you need. </span>
+</pre></div>
+</div>
+<p>我认为一项指南是，您在上一个视频中看到 Yisa 分享了许多最佳实践。所以我通常会记住这些最佳实践，清晰明确，并在必要时给模型一些时间来思考。考虑到这些因素，经常首先尝试编写提示，查看结果，然后逐步完善提示，以尽可能接近您需要的结果，这是值得的。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">And</span> <span class="n">so</span> <span class="n">a</span> <span class="n">lot</span> <span class="n">of</span> <span class="n">the</span> <span class="n">successful</span> <span class="n">prompts</span> <span class="n">that</span> <span class="n">you</span> <span class="n">may</span> <span class="n">see</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">various</span> <span class="n">programs</span> <span class="n">was</span> <span class="n">arrived</span> <span class="n">at</span> <span class="n">an</span> <span class="n">iterative</span> <span class="n">process</span> <span class="n">like</span> <span class="n">this</span><span class="o">.</span> <span class="n">Just</span> <span class="k">for</span> <span class="n">fun</span><span class="p">,</span> <span class="n">let</span> <span class="n">me</span> <span class="n">show</span> <span class="n">you</span> <span class="n">an</span> <span class="n">example</span> <span class="n">of</span> <span class="n">an</span> <span class="n">even</span> <span class="n">more</span> <span class="nb">complex</span> <span class="n">prompt</span> <span class="n">that</span> <span class="n">might</span> <span class="n">give</span> <span class="n">you</span> <span class="n">a</span> <span class="n">sense</span> <span class="n">of</span> <span class="n">what</span> <span class="n">ChatGPT</span> <span class="n">can</span> <span class="n">do</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">I</span><span class="s1">&#39;ve just added a few extra instructions here. After description, include a table that gives the product dimensions, and then you&#39;</span><span class="n">ll</span> <span class="nb">format</span> <span class="n">everything</span> <span class="k">as</span> <span class="n">HTML</span><span class="o">.</span> <span class="n">So</span> <span class="n">let</span><span class="s1">&#39;s run that. And in practice, you would end up with a prompt like this, really only after multiple iterations. I don&#39;</span><span class="n">t</span> <span class="n">think</span> <span class="n">I</span> <span class="n">know</span> <span class="n">anyone</span> <span class="n">that</span> <span class="n">would</span> <span class="n">write</span> <span class="n">this</span> <span class="n">exact</span> <span class="n">prompt</span> <span class="n">the</span> <span class="n">first</span> <span class="n">time</span> <span class="n">they</span> <span class="n">were</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">get</span> <span class="n">the</span> <span class="n">system</span> <span class="n">to</span> <span class="n">process</span> <span class="n">a</span> <span class="n">fact</span> <span class="n">sheet</span><span class="o">.</span> <span class="n">And</span> <span class="n">so</span> <span class="n">this</span> <span class="n">actually</span> <span class="n">outputs</span> <span class="n">a</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">HTML</span><span class="o">.</span> 
+</pre></div>
+</div>
+<p>所以，您可能在各种项目中看到的许多成功提示都是通过这样的迭代过程得出的。仅出于好奇，让我给您展示一个更复杂的提示示例，这可能会让您了解 ChatGPT 能做什么。我只是在这里添加了一些额外的指令。在描述后，包括一个给出产品尺寸的表格，然后将所有内容格式化为 HTML。那么让我们运行一下。在实践中，您只有在多次迭代后才能最终得到这样的提示。我不认为有人会在第一次尝试处理事实表时就写出这个精确的提示。因此，这实际上会输出一堆 HTML。</p>
+<p>请帮我用中文进行全文翻译下面这段英文，并结构化输出为中文文本段落</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Let</span><span class="s1">&#39;s display the HTML to see if this is even valid HTML and see if this works. And I don&#39;</span><span class="n">t</span> <span class="n">actually</span> <span class="n">know</span> <span class="n">it</span><span class="s1">&#39;s going to work, but let&#39;</span><span class="n">s</span> <span class="n">see</span><span class="o">.</span> <span class="n">Oh</span><span class="p">,</span> <span class="n">cool</span><span class="o">.</span> <span class="n">All</span> <span class="n">right</span><span class="o">.</span> <span class="n">Looks</span> <span class="n">like</span> <span class="n">a</span> <span class="n">rendit</span><span class="o">.</span> <span class="n">So</span> <span class="n">it</span> <span class="n">has</span> <span class="n">this</span> <span class="n">really</span> <span class="n">nice</span> <span class="n">looking</span> <span class="n">description</span> <span class="n">of</span> <span class="n">a</span> <span class="n">chair</span><span class="o">.</span> <span class="n">Construction</span><span class="p">,</span> <span class="n">materials</span><span class="p">,</span> <span class="n">product</span> <span class="n">dimensions</span><span class="o">.</span> <span class="n">Oh</span><span class="p">,</span> <span class="n">it</span> <span class="n">looks</span> <span class="n">like</span> <span class="n">I</span> <span class="n">left</span> <span class="n">out</span> <span class="n">the</span> <span class="n">use</span> <span class="n">at</span> <span class="n">most</span> <span class="mi">50</span> <span class="n">words</span> <span class="n">instruction</span><span class="p">,</span> <span class="n">so</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">little</span> <span class="n">bit</span> <span class="n">long</span><span class="p">,</span> <span class="n">but</span> <span class="k">if</span> <span class="n">you</span> <span class="n">want</span> <span class="n">that</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">even</span> <span class="n">feel</span> <span class="n">free</span> <span class="n">to</span> <span class="n">pause</span> <span class="n">the</span> <span class="n">video</span><span class="p">,</span> <span class="n">tell</span> <span class="n">it</span> <span class="n">to</span> <span class="n">be</span> <span class="n">more</span> <span class="n">succinct</span> <span class="ow">and</span> <span class="n">regenerate</span> <span class="n">this</span> <span class="ow">and</span> <span class="n">see</span> <span class="n">what</span> <span class="n">results</span> <span class="n">you</span> <span class="n">get</span><span class="o">.</span> <span class="n">So</span> <span class="n">I</span> <span class="n">hope</span> <span class="n">you</span> <span class="n">take</span> <span class="n">away</span> <span class="kn">from</span> <span class="nn">this</span> <span class="n">video</span> <span class="n">that</span> <span class="n">prompt</span> <span class="n">development</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">iterative</span> <span class="n">process</span><span class="o">.</span> 
+</pre></div>
+</div>
+<p>让我们显示这个HTML，看看它是否是有效的HTML并查看它是否起作用。我其实不知道它会不会起作用，但是让我们看一下。哦，很酷。好的。看起来像是渲染的结果。因此，它具有一个非常漂亮的椅子描述，包括构造、材料和产品尺寸。哦，看起来我漏掉了不超过50个单词的使用说明，所以这有点长，但如果你需要的话，你甚至可以随意暂停视频，要求更简洁，重新生成一下，看看结果如何。因此，我希望您从这个视频中了解到，提示开发是一个迭代的过程。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Try</span> <span class="n">something</span><span class="p">,</span> <span class="n">see</span> <span class="n">how</span> <span class="n">it</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">yet</span><span class="p">,</span> <span class="n">fulfill</span> <span class="n">exactly</span> <span class="n">what</span> <span class="n">you</span> <span class="n">want</span><span class="p">,</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">think</span> <span class="n">about</span> <span class="n">how</span> <span class="n">to</span> <span class="n">clarify</span> <span class="n">your</span> <span class="n">instructions</span><span class="p">,</span> <span class="ow">or</span> <span class="ow">in</span> <span class="n">some</span> <span class="n">cases</span><span class="p">,</span> <span class="n">think</span> <span class="n">about</span> <span class="n">how</span> <span class="n">to</span> <span class="n">give</span> <span class="n">it</span> <span class="n">more</span> <span class="n">space</span> <span class="n">to</span> <span class="n">think</span><span class="p">,</span> <span class="n">to</span> <span class="n">get</span> <span class="n">it</span> <span class="n">closer</span> <span class="n">to</span> <span class="n">delivering</span> <span class="n">the</span> <span class="n">results</span> <span class="n">that</span> <span class="n">you</span> <span class="n">want</span><span class="o">.</span> <span class="n">And</span> <span class="n">I</span> <span class="n">think</span> <span class="n">the</span> <span class="n">key</span> <span class="n">to</span> <span class="n">being</span> <span class="n">an</span> <span class="n">effective</span> <span class="n">prompt</span> <span class="n">engineer</span> <span class="n">isn</span><span class="s1">&#39;t so much about knowing the perfect prompt, it&#39;</span><span class="n">s</span> <span class="n">about</span> <span class="n">having</span> <span class="n">a</span> <span class="n">good</span> <span class="n">process</span> <span class="n">to</span> <span class="n">develop</span> <span class="n">prompts</span> <span class="n">that</span> <span class="n">are</span> <span class="n">effective</span> <span class="k">for</span> <span class="n">your</span> <span class="n">application</span><span class="o">.</span> <span class="n">And</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">video</span> <span class="n">I</span> <span class="n">illustrated</span> <span class="n">developing</span> <span class="n">a</span> <span class="n">prompt</span> <span class="n">using</span> <span class="n">just</span> <span class="n">one</span> <span class="n">example</span><span class="o">.</span> <span class="n">For</span> <span class="n">more</span> <span class="n">sophisticated</span> <span class="n">applications</span><span class="p">,</span> <span class="n">sometimes</span> <span class="n">you</span> <span class="n">will</span> <span class="n">have</span> <span class="n">multiple</span> <span class="n">examples</span><span class="p">,</span> <span class="n">say</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">even</span> <span class="mi">50</span> <span class="ow">or</span> <span class="mi">100</span> <span class="n">fact</span> <span class="n">sheets</span><span class="p">,</span> <span class="ow">and</span> <span class="n">iteratively</span> <span class="n">develop</span> <span class="n">a</span> <span class="n">prompt</span> <span class="ow">and</span> <span class="n">evaluate</span> <span class="n">it</span> <span class="n">against</span> <span class="n">a</span> <span class="n">large</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">cases</span><span class="o">.</span> 
+</pre></div>
+</div>
+<p>尝试一些事情，看看它是否符合您的期望，如果还没有达到预期，那么就考虑如何澄清您的指令，或者在某些情况下，考虑为它提供更多的思考空间，使它更接近您想要的结果。我认为成为一个有效的提示工程师并不是非常依赖于知道完美的提示，而是拥有一个良好的流程来开发有效的提示，以适应您的应用程序。在这个视频中，我仅仅用一个例子来说明如何开发提示。对于更复杂的应用程序，有时您会有多个例子，比如10个、甚至50个或100个信息表格，然后循环开发提示并对大量情况进行评估。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">But</span> <span class="k">for</span> <span class="n">the</span> <span class="n">early</span> <span class="n">development</span> <span class="n">of</span> <span class="n">most</span> <span class="n">applications</span><span class="p">,</span> <span class="n">I</span> <span class="n">see</span> <span class="n">many</span> <span class="n">people</span> <span class="n">developing</span> <span class="n">it</span> <span class="n">sort</span> <span class="n">of</span> <span class="n">the</span> <span class="n">way</span> <span class="n">I</span> <span class="n">am</span> <span class="k">with</span> <span class="n">just</span> <span class="n">one</span> <span class="n">example</span><span class="p">,</span> <span class="n">but</span> <span class="n">then</span> <span class="k">for</span> <span class="n">more</span> <span class="n">mature</span> <span class="n">applications</span><span class="p">,</span> <span class="n">sometimes</span> <span class="n">it</span> <span class="n">could</span> <span class="n">be</span> <span class="n">useful</span> <span class="n">to</span> <span class="n">evaluate</span> <span class="n">prompts</span> <span class="n">against</span> <span class="n">a</span> <span class="n">larger</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">examples</span><span class="p">,</span> <span class="n">such</span> <span class="k">as</span> <span class="n">to</span> <span class="n">test</span> <span class="n">different</span> <span class="n">prompts</span> <span class="n">on</span> <span class="n">dozens</span> <span class="n">of</span> <span class="n">fact</span> <span class="n">sheets</span> <span class="n">to</span> <span class="n">see</span> <span class="n">how</span> <span class="n">this</span> <span class="n">average</span> <span class="ow">or</span> <span class="n">worst</span> <span class="n">case</span> <span class="n">performance</span> <span class="ow">is</span> <span class="n">on</span> <span class="n">multiple</span> <span class="n">fact</span> <span class="n">sheets</span><span class="o">.</span> <span class="n">But</span> <span class="n">usually</span> <span class="n">you</span> <span class="n">end</span> <span class="n">up</span> <span class="n">doing</span> <span class="n">that</span> <span class="n">only</span> <span class="n">when</span> <span class="n">an</span> <span class="n">application</span> <span class="ow">is</span> <span class="n">more</span> <span class="n">mature</span> <span class="ow">and</span> <span class="n">you</span> <span class="n">have</span> <span class="n">to</span> <span class="n">have</span> <span class="n">those</span> <span class="n">metrics</span> <span class="n">to</span> <span class="n">drive</span> <span class="n">that</span> <span class="n">incremental</span> <span class="n">last</span> <span class="n">few</span> <span class="n">steps</span> <span class="n">of</span> <span class="n">prompt</span> <span class="n">improvement</span><span class="o">.</span> <span class="n">So</span> <span class="k">with</span> <span class="n">that</span><span class="p">,</span> <span class="n">please</span> <span class="n">do</span> <span class="n">play</span> <span class="k">with</span> <span class="n">the</span> <span class="n">Jupyter</span> <span class="n">code</span> <span class="n">notebook</span> <span class="n">examples</span> <span class="ow">and</span> <span class="k">try</span> <span class="n">out</span> <span class="n">different</span> <span class="n">variations</span> <span class="ow">and</span> <span class="n">see</span> <span class="n">what</span> <span class="n">results</span> <span class="n">you</span> <span class="n">get</span><span class="o">.</span> <span class="n">And</span> <span class="n">when</span> <span class="n">you</span><span class="s1">&#39;re done, let&#39;</span><span class="n">s</span> <span class="n">go</span> <span class="n">on</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">video</span> <span class="n">where</span> <span class="n">we</span><span class="s1">&#39;ll talk about one very common use of large language models in software applications, which is to summarize text. </span>
+</pre></div>
+</div>
+<p>但对于大多数应用程序的早期开发，我看到很多人像我一样只用一个示例进行开发，但是对于更成熟的应用程序，有时评估提示与更多的示例集是有用的，例如在几十个信息表格上测试不同的提示，以查看在多个信息表格上的平均或最差表现。但通常只有当应用程序更加成熟时，您才需要这些指标来推动提示改进的最后几步。因此，请尝试使用Jupyter代码笔记本示例，并尝试不同的变化，看看结果如何。完成后，让我们进入下一个视频，我们将讨论在软件应用程序中使用大型语言模型的一个非常常见的用途，即总结文本。</p>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Guidelines/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.提示工程关键原则</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Summarizing/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4.总结类应用</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By isLinXu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, isLinXu.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

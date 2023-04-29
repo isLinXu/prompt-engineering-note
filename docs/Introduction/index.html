@@ -1,0 +1,500 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1.课程简介 &#8212; 提示工程笔记</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Introduction/index';</script>
+    <link rel="shortcut icon" href="../_static/panda.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.提示工程关键原则" href="../Guidelines/index.html" />
+    <link rel="prev" title="prompt-engineering-note" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">1.课程简介</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Guidelines/index.html">2.提示工程关键原则</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Iterative/index.html">3.提示工程需要迭代</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Summarizing/index.html">4.总结类应用</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Inferring/index.html">5.推理类应用</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Transforming/index.html">6.转换类应用</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Expanding/index.html">7.扩展类应用</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chatbot/index.html">8.打造聊天机器人</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Conclusion/index.html">9.课程总结</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">10.projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apps/index.html">11.apps</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/isLinXu/prompt-engineering-note" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/isLinXu/prompt-engineering-note/edit/main/Introduction/index.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/isLinXu/prompt-engineering-note/issues/new?title=Issue%20on%20page%20%2FIntroduction/index.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Introduction/index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1.课程简介</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="id1">
+<h1>1.课程简介<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chatgpt prompt：请帮我用中文进行全文翻译下面这段英文，并结构化输出为中文文本段落
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Welcome</span> <span class="n">to</span> <span class="n">this</span> <span class="n">course</span> <span class="n">on</span> <span class="n">ChatGPT</span> <span class="n">prompt</span> <span class="n">engineering</span> <span class="k">for</span> <span class="n">developers</span><span class="o">.</span> <span class="n">I</span><span class="s1">&#39;m thrilled to have with me Isa Fulford to teach this along with me. She is a member of the technical staff of OpenAI and had built the popular ChatGPT retrieval plugin and a large part of the work has been teaching people how to use LLM or large language model technology in products. She&#39;</span><span class="n">s</span> <span class="n">also</span> <span class="n">contributed</span> <span class="n">to</span> <span class="n">the</span> <span class="n">OpenAI</span> <span class="n">cookbook</span> <span class="n">that</span> <span class="n">teaches</span> <span class="n">people</span> <span class="n">prompting</span><span class="o">.</span> <span class="n">So</span> <span class="n">thrilled</span> <span class="n">to</span> <span class="n">have</span> <span class="n">you</span> <span class="k">with</span> <span class="n">you</span><span class="o">.</span> <span class="n">And</span> <span class="n">I</span><span class="s1">&#39;m thrilled to be here and share some prompting best practices with you all. So there&#39;</span><span class="n">s</span> <span class="n">been</span> <span class="n">a</span> <span class="n">lot</span> <span class="n">of</span> <span class="n">material</span> <span class="n">on</span> <span class="n">the</span> <span class="n">internet</span> <span class="k">for</span> <span class="n">prompting</span> <span class="k">with</span> <span class="n">articles</span> <span class="n">like</span> <span class="mi">30</span> <span class="n">prompts</span> <span class="n">everyone</span> <span class="n">has</span> <span class="n">to</span> <span class="n">know</span> <span class="n">A</span> <span class="n">lot</span> <span class="n">of</span> <span class="n">that</span> <span class="n">has</span> <span class="n">been</span> <span class="n">focused</span> <span class="n">on</span> <span class="n">the</span> <span class="n">ChatGPT</span> <span class="n">web</span> <span class="n">user</span> <span class="n">interface</span> <span class="n">Which</span> <span class="n">many</span> <span class="n">people</span> <span class="n">are</span> <span class="n">using</span> <span class="n">to</span> <span class="n">do</span> <span class="n">specific</span> <span class="ow">and</span> <span class="n">often</span> <span class="n">one</span><span class="o">-</span><span class="n">off</span> <span class="n">tasks</span> <span class="n">But</span> <span class="n">I</span> <span class="n">think</span> <span class="n">the</span> <span class="n">power</span> <span class="n">of</span> <span class="n">LLM</span> <span class="n">large</span> <span class="n">language</span> <span class="n">models</span> <span class="k">as</span> <span class="n">a</span> <span class="n">developer</span> <span class="n">to</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">using</span> <span class="n">API</span> <span class="n">calls</span> <span class="n">to</span> <span class="n">LLM</span> <span class="n">To</span> <span class="n">quickly</span> <span class="n">build</span> <span class="n">software</span> <span class="n">applications</span><span class="o">.</span> <span class="n">I</span> <span class="n">think</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">still</span> <span class="n">very</span> <span class="n">underappreciated</span> <span class="n">In</span> <span class="n">fact</span><span class="p">,</span> <span class="n">my</span> <span class="n">team</span> <span class="n">at</span> <span class="n">AI</span> <span class="n">Fund</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">sister</span> <span class="n">company</span> <span class="n">to</span> <span class="n">DeepLearning</span><span class="o">.</span><span class="n">AI</span> <span class="n">Has</span> <span class="n">been</span> <span class="n">working</span> <span class="k">with</span> <span class="n">many</span> <span class="n">startups</span> <span class="n">on</span> <span class="n">applying</span> <span class="n">these</span> <span class="n">technologies</span> <span class="n">to</span> <span class="n">many</span> <span class="n">different</span> <span class="n">applications</span> <span class="n">And</span> <span class="n">it</span><span class="s1">&#39;s been exciting to see what LLM APIs can enable developers to very quickly build So in this course, we&#39;</span><span class="n">ll</span> <span class="n">share</span> <span class="k">with</span> <span class="n">you</span> <span class="n">some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">possibilities</span> <span class="k">for</span> <span class="n">what</span> <span class="n">you</span> <span class="n">can</span> <span class="n">do</span> <span class="n">As</span> <span class="n">well</span> <span class="k">as</span> <span class="n">best</span> <span class="n">practices</span> <span class="k">for</span> <span class="n">how</span> <span class="n">you</span> <span class="n">can</span> <span class="n">do</span> <span class="n">them</span> <span class="n">There</span><span class="s1">&#39;s a lot of material to cover. </span>
+</pre></div>
+</div>
+<p>欢迎来到这门针对开发者的AIGPT提示工程课程。我很高兴能够与Isa Fulford一起授课。她是OpenAI的技术团队成员，她开发了流行的AIGPT检索插件，同时也教授人们如何在产品中使用LLM或大型语言模型技术，也为OpenAI食谱做出贡献。我很高兴能和她一起授课。同时我也很高兴在这里与大家分享一些提示最佳实践。实际上，关于提示已经有了很多互联网上的材料，例如“30个人人都必须知道的提示”。很多焦点都放在了AIGPT的Web版界面上，这使得很多人只用于完成特定的任务，而且经常是一次性的。但我认为，LLM大型语言模型作为一名开发人员的强大之处在于使用API调用LLM快速构建软件应用程序。实际上，AI Fund在我的团队与DeepLearning.AI的姊妹公司合作，为很多创业公司应用这些技术到许多不同的应用领域，看到LLM API可以使开发人员非常快速地构建应用程序实属令人兴奋。因此，在这门课程中，我们将与您分享一些您可以做到什么的可能性，以及如何最佳实践地完成这些任务。有很多要涵盖的内容。</p>
+<p><img alt="1" src="../_images/1.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">First</span> <span class="n">you</span><span class="s1">&#39;ll learn some prompting best practices for software development Then we&#39;</span><span class="n">ll</span> <span class="n">cover</span> <span class="n">some</span> <span class="n">common</span> <span class="n">use</span> <span class="n">cases</span><span class="p">,</span> <span class="n">summarizing</span><span class="p">,</span> <span class="n">inferring</span><span class="p">,</span> <span class="n">transforming</span><span class="p">,</span> <span class="n">expanding</span> <span class="n">And</span> <span class="n">then</span> <span class="n">you</span><span class="s1">&#39;ll build a chatbot using an LLM We hope that this will spark your imagination about new applications that you can build So in the development of large language models or LLMs, there have been broadly two types of LLMs Which I&#39;</span><span class="n">m</span> <span class="n">going</span> <span class="n">to</span> <span class="n">refer</span> <span class="n">to</span> <span class="k">as</span> <span class="n">base</span> <span class="n">LLMs</span> <span class="ow">and</span> <span class="n">instruction</span> <span class="n">tuned</span> <span class="n">LLMs</span> 
+</pre></div>
+</div>
+<p>首先，你将学习一些软件开发最佳实践的提示。然后，我们将涵盖一些常见的用例，包括总结、推理、转换和扩展。接着，你将使用LLM构建一个聊天机器人。我们希望这会激发你的想象力，并能够创建出新的应用程序。在大型语言模型或LLM的开发中，大体上有两种类型的LLM，我将其称为基础LLM和指令调整后的LLM。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">So</span> <span class="n">base</span> <span class="n">OMS</span> <span class="n">has</span> <span class="n">been</span> <span class="n">trained</span> <span class="n">to</span> <span class="n">predict</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">word</span> <span class="n">based</span> <span class="n">on</span> <span class="n">text</span> <span class="n">training</span> <span class="n">data</span> <span class="n">Often</span> <span class="n">trained</span> <span class="n">on</span> <span class="n">a</span> <span class="n">large</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">data</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">internet</span> <span class="ow">and</span> <span class="n">other</span> <span class="n">sources</span> <span class="n">To</span> <span class="n">figure</span> <span class="n">out</span> <span class="n">what</span><span class="s1">&#39;s the next most likely word to follow So for example, if you were to prompt this once upon a time there was a unicorn It may complete this, that is it may predict the next several words are That live in a magical forest with all unicorn friends But if you were to prompt this with what is the capital of France </span>
+</pre></div>
+</div>
+<p>因此，基础LLM已经训练出来根据文本训练数据预测下一个单词。通常是在互联网和其他来源的大量数据上进行训练，以找出接下来最有可能的单词。例如，如果你提示“一次有一个独角兽”，它可能会继续完整这个句子，预测出接下来的几个单词是“和所有的独角兽朋友生活在一个神奇的森林里”。但如果你提示“法国的首都是什么”，那么LLM可能会给出正确的回答“巴黎”，或者可能会给出错误的回答。训练后的LLM可以接收新的提示作为输入，并输出预测结果。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Then</span> <span class="n">based</span> <span class="n">on</span> <span class="n">what</span> <span class="n">articles</span> <span class="n">on</span> <span class="n">the</span> <span class="n">internet</span> <span class="n">might</span> <span class="n">have</span> <span class="n">It</span><span class="s1">&#39;s quite possible that a base LLMs will complete this with What is France&#39;</span><span class="n">s</span> <span class="n">largest</span> <span class="n">city</span><span class="p">,</span> <span class="n">what</span> <span class="ow">is</span> <span class="n">France</span><span class="s1">&#39;s population and so on Because articles on the internet could quite plausibly be lists of quiz questions about the country of France In contrast, an instruction tuned LLMs, which is where a lot of momentum of LLMs research and practice has been going An instruction tuned LLMs has been trained to follow instructions So if you were to ask it, what is the capital of France is much more likely to output something like the capital of France is Paris </span>
+</pre></div>
+</div>
+<p>基于互联网上的文章，基础LLM有可能会回答法国的最大城市是什么，法国的人口是多少等等。因为互联网上的文章很可能是关于法国的问答列表。相比之下，指令调整后的LLM更接受人们的指令。因此，如果你问它法国的首都是什么，它很可能会输出法国的首都是巴黎。指令调整后的LLM的研究和实践的动量更大。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">So</span> <span class="n">the</span> <span class="n">way</span> <span class="n">that</span> <span class="n">instruction</span> <span class="n">tuned</span> <span class="n">LLMs</span> <span class="n">are</span> <span class="n">typically</span> <span class="n">trained</span> <span class="ow">is</span> <span class="n">You</span> <span class="n">start</span> <span class="n">off</span> <span class="k">with</span> <span class="n">a</span> <span class="n">base</span> <span class="n">LLMs</span> <span class="n">that</span><span class="s1">&#39;s been trained on a huge amount of text data And further train it for the fine tune it with inputs and outputs that are instructions and good attempts to follow those instructions And then often further refine using a technique called RLHF reinforcement learning from human feedback To make the system better able to be helpful and follow instructions Because instruction tuned LLMs have been trained to be helpful, honest and harmless So for example, they&#39;</span><span class="n">re</span> <span class="n">less</span> <span class="n">likely</span> <span class="n">to</span> <span class="n">output</span> <span class="n">problematic</span> <span class="n">text</span> <span class="n">such</span> <span class="k">as</span> <span class="n">toxic</span> <span class="n">outputs</span> <span class="n">compared</span> <span class="n">to</span> <span class="n">base</span> <span class="n">LLMs</span> <span class="n">A</span> <span class="n">lot</span> <span class="n">of</span> <span class="n">the</span> <span class="n">practical</span> <span class="n">usage</span> <span class="n">scenarios</span> <span class="n">have</span> <span class="n">been</span> <span class="n">shifting</span> <span class="n">toward</span> <span class="n">instruction</span> <span class="n">tuned</span> <span class="n">LLMs</span> <span class="n">Some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">best</span> <span class="n">practices</span> <span class="n">you</span> <span class="n">find</span> <span class="n">on</span> <span class="n">the</span> <span class="n">internet</span> <span class="n">may</span> <span class="n">be</span> <span class="n">more</span> <span class="n">suited</span> <span class="k">for</span> <span class="n">a</span> <span class="n">base</span> <span class="n">LLMs</span> 
+</pre></div>
+</div>
+<p>因此，指令调整后的LLM通常是这样训练的：首先，你从大量文本数据中训练出一个基础LLM，随后使用指令和良好尝试的输入和输出来对其进行微调和优化，然后通常使用称为“人类反馈强化学习”的技术进行进一步细化，以使系统更能够有帮助且能够遵循指令。因为指令调整后的LLM被训练成有用、诚实和无害的，所以它们输出有害文本（如毒性输出）的可能性比基础LLM更小。很多实际的应用场景已开始向指令调整后的LLM转移，而一些在互联网上查到的最佳实践则可能更适用于基础LLM。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">But</span> <span class="k">for</span> <span class="n">most</span> <span class="n">practical</span> <span class="n">applications</span> <span class="n">today</span><span class="p">,</span> <span class="n">we</span> <span class="n">would</span> <span class="n">recommend</span> <span class="n">most</span> <span class="n">people</span> <span class="n">instead</span> <span class="n">focus</span> <span class="n">on</span> <span class="n">instruction</span> <span class="n">tuned</span> <span class="n">LLMs</span> <span class="n">Which</span> <span class="n">are</span> <span class="n">easier</span> <span class="n">to</span> <span class="n">use</span> <span class="ow">and</span> <span class="n">also</span> <span class="n">because</span> <span class="n">of</span> <span class="n">the</span> <span class="n">work</span> <span class="n">of</span> <span class="n">OpenAI</span> <span class="ow">and</span> <span class="n">other</span> <span class="n">LLM</span> <span class="n">companies</span> <span class="n">becoming</span> <span class="n">safer</span> <span class="ow">and</span> <span class="n">more</span> <span class="n">aligned</span> <span class="n">So</span> <span class="n">this</span> <span class="n">course</span> <span class="n">will</span> <span class="n">focus</span> <span class="n">on</span> <span class="n">best</span> <span class="n">practices</span> <span class="k">for</span> <span class="n">instruction</span> <span class="n">tuned</span> <span class="n">LLMs</span> <span class="n">Which</span> <span class="ow">is</span> <span class="n">what</span> <span class="n">we</span> <span class="n">recommend</span> <span class="n">you</span> <span class="n">use</span> <span class="k">for</span> <span class="n">most</span> <span class="n">of</span> <span class="n">your</span> <span class="n">applications</span> <span class="n">Before</span> <span class="n">moving</span> <span class="n">on</span><span class="p">,</span> <span class="n">I</span> <span class="n">just</span> <span class="n">want</span> <span class="n">to</span> <span class="n">acknowledge</span> <span class="n">the</span> <span class="n">team</span> <span class="kn">from</span> <span class="nn">OpenAI</span> <span class="ow">and</span> <span class="n">DeepLearning</span><span class="o">.</span><span class="n">ai</span> <span class="n">that</span> <span class="n">had</span> <span class="n">contributed</span> <span class="n">to</span> <span class="n">the</span> <span class="n">materials</span> <span class="n">That</span> <span class="n">Izzy</span> <span class="ow">and</span> <span class="n">I</span> <span class="n">will</span> <span class="n">be</span> <span class="n">presenting</span><span class="o">.</span> <span class="n">I</span><span class="s1">&#39;m very grateful to Andrew Main, Joe Palermo, Boris Power, Ted Sanders, and Lillian Weng from OpenAI They were very involved with us brainstorming materials, vetting the materials to put together the curriculum for this short course And I&#39;</span><span class="n">m</span> <span class="n">also</span> <span class="n">grateful</span> <span class="n">on</span> <span class="n">the</span> <span class="n">deep</span> <span class="n">learning</span> <span class="n">side</span> <span class="k">for</span> <span class="n">the</span> <span class="n">work</span> <span class="n">of</span> <span class="n">Geoff</span> <span class="n">Ladwig</span><span class="p">,</span> <span class="n">Eddy</span> <span class="n">Shyu</span><span class="p">,</span> <span class="ow">and</span> <span class="n">Tommy</span> <span class="n">Nelson</span>
+</pre></div>
+</div>
+<p>对于大多数今天的实际应用，我们建议大多数人应该专注于经过调整的指令语言模型。这些模型更易于使用，而且由于OpenAI和其他LLM公司的工作，它们变得更加安全和更加符合要求。因此，本课程将专注于经过调整的指令语言模型的最佳实践，这是我们建议大多数应用程序使用的模型。在继续之前，我只想感谢OpenAI和DeepLearning.ai团队为我们提供的材料做出的贡献。我非常感谢OpenAI的Andrew Main、Joe Palermo、Boris Power、Ted Sanders和Lillian Weng。他们与我们一起进行了头脑风暴，对材料进行了审核，为这个短期课程的课程设置拼凑了课程计划。我也感谢深度学习方面Geoff Ladwig、Eddy Shyu和Tommy Nelson的工作。</p>
+<p><img alt="1" src="../_images/2.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">So</span> <span class="n">when</span> <span class="n">you</span> <span class="n">use</span> <span class="n">an</span> <span class="n">instruction</span> <span class="n">tuned</span> <span class="n">LLMs</span><span class="p">,</span> <span class="n">think</span> <span class="n">of</span> <span class="n">giving</span> <span class="n">instructions</span> <span class="n">to</span> <span class="n">another</span> <span class="n">person</span> <span class="n">Say</span> <span class="n">someone</span> <span class="n">that</span><span class="s1">&#39;s smart but doesn&#39;</span><span class="n">t</span> <span class="n">know</span> <span class="n">the</span> <span class="n">specifics</span> <span class="n">of</span> <span class="n">your</span> <span class="n">task</span> <span class="n">So</span> <span class="n">when</span> <span class="n">an</span> <span class="n">LLMs</span> <span class="n">doesn</span><span class="s1">&#39;t work, sometimes it&#39;</span><span class="n">s</span> <span class="n">because</span> <span class="n">the</span> <span class="n">instructions</span> <span class="n">weren</span><span class="s1">&#39;t clear enough For example, if you were to say, please write me something about Alan Turing Well, in addition to that, it can be helpful to be clear about whether you want the text to focus on his scientific work Or his personal life or his role in history or something else And if you specify what you want the tone of the text to be, should it take on the tone like a professional journalist would write? Or is it more of a casual note that you dash off to a friend that hopes the OMS generate what you want? And of course, if you picture yourself asking, say, a fresh college graduate to carry out this task for you If you can even specify what snippets of text they should read in advance to write this text about Alan Turing Then that even better sets up that fresh college grad for success to carry out this task for you So in the next video, you see examples of how to be clear and specific, which is an important principle of prompting OMS And you also learn from either a second principle of prompting that is giving LLM time to think So with that, let&#39;</span><span class="n">s</span> <span class="n">go</span> <span class="n">on</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">video</span> 
+</pre></div>
+</div>
+<p>因此，当您使用经过调整的指令语言模型时，请考虑给另一个人指示。比如说一个聪明但不了解任务细节的人。那么当LLMs不能工作时，有时是因为指令不够清晰。例如，如果您要说，请为我写一些关于艾伦·图灵的东西。除此之外，明确您希望文本集中讨论他的科学工作、个人生活、在历史中的角色或其他相关事项可能会有所帮助。如果您指定文本要呈现的语气，它应该采用类似专业新闻记者所写的语气呢？还是更像一封简短的随笔，希望LLMs生成您所要求的内容？当然，如果你想象自己要求一个刚拿到大学毕业证的人为你执行这个任务，你甚至可以提前指定他们应该阅读哪几段文本以撰写关于艾伦·图灵的文本，这会进一步为他们成功执行您的此项任务做好准备。在下一个视频中，您将看到如何清晰明确、具体，这是提示LLMs的一个重要原则。您还将学习第二个提示原则：给LLMs时间思考。所以，让我们继续下一个视频。</p>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">prompt-engineering-note</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Guidelines/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.提示工程关键原则</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By isLinXu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, isLinXu.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -15,6 +15,8 @@ chatgpt prompt：请帮我用中文进行全文翻译下面这段英文，并结
 Congratulations on making it to the end of this short course. In summary, in this short course you've learned about two key principles for prompting. Write clear and specific instructions, and when it's appropriate, give the model time to think. You also learned about iterative prompt development and how having a process to get to the prompt that's right for your application is key. 
 ```
 
+![9-1](./imgs/9-1.png)
+
 恭喜你完成了这个短课程。总的来说，在本短课程中，你学会了两个关键的提示原则。撰写清晰明确的指令，并在适当的情况下给模型时间思考。你还学会了迭代式提示开发的方法，以及如何找到适合你的应用程序的提示方法是至关重要的。
 
 ```

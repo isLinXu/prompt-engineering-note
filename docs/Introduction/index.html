@@ -350,7 +350,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -366,6 +368,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">本章文本总结</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -413,6 +423,13 @@ document.write(`
 </pre></div>
 </div>
 <p>因此，当您使用经过调整的指令语言模型时，请考虑给另一个人指示。比如说一个聪明但不了解任务细节的人。那么当LLMs不能工作时，有时是因为指令不够清晰。例如，如果您要说，请为我写一些关于艾伦·图灵的东西。除此之外，明确您希望文本集中讨论他的科学工作、个人生活、在历史中的角色或其他相关事项可能会有所帮助。如果您指定文本要呈现的语气，它应该采用类似专业新闻记者所写的语气呢？还是更像一封简短的随笔，希望LLMs生成您所要求的内容？当然，如果你想象自己要求一个刚拿到大学毕业证的人为你执行这个任务，你甚至可以提前指定他们应该阅读哪几段文本以撰写关于艾伦·图灵的文本，这会进一步为他们成功执行您的此项任务做好准备。在下一个视频中，您将看到如何清晰明确、具体，这是提示LLMs的一个重要原则。您还将学习第二个提示原则：给LLMs时间思考。所以，让我们继续下一个视频。</p>
+<section id="id2">
+<h2>本章文本总结<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chatgpt prompt：请详细地概括并总结下面这段文本的主要内容，用吴恩达老师的口吻和语气来描述它
+</pre></div>
+</div>
+<p>大家好，这是一门面向开发者的ChatGPT提示工程课程，我们将分享一些最佳实践和常见的用例，涵盖总结、推理、转换和扩展等内容。在这门课程中，我们将介绍大型语言模型或LLM，并重点讲解基础LLM和指令调整后的LLM的区别。基础LLM已经训练出来根据文本训练数据预测下一个单词，而指令调整后的LLM更接受人们的指令。我们建议大多数人专注于经过调整的指令语言模型，因为它们更易于使用，更符合要求，而且输出有害文本的可能性更小。当使用经过调整的指令语言模型时，请考虑给输出人员足够的指示，并让LLMs有足够的时间去思考。</p>
+</section>
 </section>
 
 
@@ -448,6 +465,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">本章文本总结</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

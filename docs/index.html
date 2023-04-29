@@ -372,10 +372,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">介绍</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">简介</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">介绍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">主要内容</a></li>
 </ul>
             </nav>
         </div>
@@ -392,19 +390,40 @@ document.write(`
 <hr class="docutils" />
 <section id="id1">
 <h2>介绍<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>ChatGPT Prompt Engineering for Developers (面向开发者的ChatGPT提问工程)</p>
+<p>ChatGPT Prompt Engineering Learning Notesfor Developers (面向开发者的ChatGPT提问工程学习笔记)</p>
+<p>课程简单介绍了语言模型的工作原理，提供了最佳的提示工程实践，并展示了如何将语言模型 API 应用于各种任务的应用程序中。
+此外，课程里面提供了 Jupyter Notebook 代码实例，可以直接使用 OpenAI 提供的 API Key 获得结果，所以没有账号也能够进行体验。</p>
+<p>在ChatGPT Prompt Engineering for Developers 中，能够学习到如何使用大型语言模型 (LLM) 快速构建功能强大的新应用程序。使用 OpenAI API，您将能够快速构建学习创新和创造价值的能力，而这在以前是成本高昂、技术含量高或根本不可能的。</p>
+<p>这个由 <strong>Isa Fulford (OpenAI)</strong> 和 <strong>Andrew Ng (DeepLearning.AI)</strong> 教授的短期课程将描述 LLM 的工作原理，提供即时工程的最佳实践，并展示 LLM API 如何用于各种任务的应用程序，包括：</p>
+<ul class="simple">
+<li><p>总结（例如，为简洁起见总结用户评论）</p></li>
+<li><p>推断（例如，情感分类、主题提取）</p></li>
+<li><p>转换文本（例如，翻译、拼写和语法更正）</p></li>
+<li><p>扩展（例如，自动编写电子邮件）</p></li>
+</ul>
+<p>在这个课程中能够学习到，编写有效提示的两个关键原则，即<strong>如何系统地设计好的提示</strong>，并学习<strong>构建自定义聊天机器人</strong>。</p>
+<p>所有概念都通过大量示例进行说明，可以直接在官方的<a class="reference external" href="https://s172-31-9-165p16067.lab-aws-production.deeplearning.ai/notebooks/">Jupyter notebook环境</a>中使用这些示例，以获得即时工程的实践经验。</p>
+</section>
 <section id="id2">
-<h3>简介<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h2>主要内容<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">目录</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction/index.html">1.课程简介</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="Introduction/index.html">1.课程简介</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction/index.html#id2">本章文本总结</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Guidelines/index.html">2.提示工程关键原则</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="Guidelines/index.html">2.提示工程关键原则</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Guidelines/index.html#id2">1.原则1-编写清晰具体的指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Guidelines/index.html#id7">2.原则2-给模型充足的思考时间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Guidelines/index.html#id10">3.模型的局限性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Guidelines/index.html#id11">4.本章文本总结</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Iterative/index.html">3.提示工程需要迭代</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="Iterative/index.html">3.提示工程需要迭代</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Iterative/index.html#issue-1">3.2 Issue 1: 文本过长</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Iterative/index.html#issue-2">3.3 Issue 2. 文字关注错误的细节</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Iterative/index.html#issue-3">3.3 Issue 3. 描述需要一个规模表</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Summarizing/index.html">4.总结类应用</a><ul class="simple">
@@ -429,7 +448,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="apps/index.html">11.apps</a></li>
 </ul>
 </div>
-<p>课程章节</p>
+<p><strong>课程章节</strong></p>
 <ol class="arabic simple">
 <li><p>课程简介 (Introduction)</p></li>
 <li><p>提示工程关键原则 (Guidelines)</p></li>
@@ -441,9 +460,19 @@ document.write(`
 <li><p>打造聊天机器人 (Chatbot)</p></li>
 <li><p>课程总结 (Conclusion)</p></li>
 </ol>
-<p>课程简单介绍了语言模型的工作原理，提供了最佳的提示工程实践，并展示了如何将语言模型 API 应用于各种任务的应用程序中。
-此外，课程里面提供了 Jupyter Notebook 代码实例，可以直接使用 OpenAI 提供的 API Key 获得结果，所以没有账号也能够进行体验。</p>
-</section>
+<p>这个项目是对于**<a class="reference external" href="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/">ChatGPT Prompt Engineering for Developers</a><strong>课程的学习笔记整理，这里要感谢</strong>Isa Fulford (OpenAI)** 和 <strong>Andrew Ng (DeepLearning.AI)</strong> 提供的精彩课程，这些内容对于像我一样的初学者提供了很大的帮助，本着学习与实践的想法，做了下面这些事情，希望可以对提示工程学习者起到帮助：</p>
+<ul>
+<li><p>1.使用prompt+ChatGPT对课程内容原文进行机器翻译（全文由ChatGPT翻译生成，每一章都提供了中英对照）；</p>
+<img width="917" alt="trans_lan" src="https://user-images.githubusercontent.com/59380685/235310208-d447904e-5a19-4f70-a4f9-9f608517acc1.png" style="zoom: 50%;" >
+</li>
+<li><p>2.使用prompt+ChatGPT对笔记内容进行总结与扩展（在每一节的最后，附上了ChatGPT总结的效果）；</p>
+<img width="824" alt="sum_context" src="https://user-images.githubusercontent.com/59380685/235310262-b82a8243-3e72-4a12-b36a-ef24206c563e.png" style="zoom:50%;" >
+</li>
+<li><p>3.整理了实践过程中对应的jupyterbook代码，（可以在本地化部署环境运行）；</p>
+<img width="1235" alt="jb_code" src="https://user-images.githubusercontent.com/59380685/235310289-7f787cfd-2277-4722-97f8-2f30605321f6.png" style="zoom:50%;" >
+</li>
+<li><p>… …</p></li>
+</ul>
 </section>
 </section>
 
@@ -480,10 +509,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">介绍</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">简介</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">介绍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">主要内容</a></li>
 </ul>
   </nav></div>
 

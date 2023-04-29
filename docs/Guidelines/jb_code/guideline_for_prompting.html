@@ -1,0 +1,978 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Guidelines for Prompting &#8212; 提示工程笔记</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Guidelines/jb_code/guideline_for_prompting';</script>
+    <link rel="shortcut icon" href="../../_static/panda.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Introduction/index.html">1.课程简介</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">2.提示工程关键原则</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Iterative/index.html">3.提示工程需要迭代</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Summarizing/index.html">4.总结类应用</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Inferring/index.html">5.推理类应用</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Transforming/index.html">6.转换类应用</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Expanding/index.html">7.扩展类应用</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Chatbot/index.html">8.打造聊天机器人</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Conclusion/index.html">9.课程总结</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">10.projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../apps/index.html">11.apps</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/isLinXu/prompt-engineering-note" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/isLinXu/prompt-engineering-note/edit/main/Guidelines/jb_code/guideline_for_prompting.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/isLinXu/prompt-engineering-note/issues/new?title=Issue%20on%20page%20%2FGuidelines/jb_code/guideline_for_prompting.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Guidelines/jb_code/guideline_for_prompting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Guidelines for Prompting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-function">helper function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-principles">Prompting Principles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tactics">Tactics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-1-use-delimiters-to-clearly-indicate-distinct-parts-of-the-input">Tactic 1: Use delimiters to clearly indicate distinct parts of the input</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-2-ask-for-a-structured-output">Tactic 2: Ask for a structured output</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-3-ask-the-model-to-check-whether-conditions-are-satisfied">Tactic 3: Ask the model to check whether conditions are satisfied</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-4-few-shot-prompting">Tactic 4: “Few-shot” prompting</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-2-give-the-model-time-to-think">Principle 2: Give the model time to “think”</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-1-specify-the-steps-required-to-complete-a-task">Tactic 1: Specify the steps required to complete a task</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ask-for-output-in-a-specified-format">Ask for output in a specified format</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-2-instruct-the-model-to-work-out-its-own-solution-before-rushing-to-a-conclusion">Tactic 2: Instruct the model to work out its own solution before rushing to a conclusion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#note-that-the-student-s-solution-is-actually-not-correct">Note that the student’s solution is actually not correct.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-fix-this-by-instructing-the-model-to-work-out-its-own-solution-first">We can fix this by instructing the model to work out its own solution first.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-limitations-hallucinations">Model Limitations: Hallucinations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-experimenting-on-your-own">Try experimenting on your own!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-on-using-the-openai-api-outside-of-this-classroom">Notes on using the OpenAI API outside of this classroom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-about-the-backslash">A note about the backslash</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="guidelines-for-prompting">
+<h1>Guidelines for Prompting<a class="headerlink" href="#guidelines-for-prompting" title="Permalink to this heading">#</a></h1>
+<p>In this lesson, you’ll practice two prompting principles and their related tactics in order to write effective prompts for large language models.</p>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<p>Load the API key and relevant Python libaries.</p>
+<p>In this course, we’ve provided some code that loads the OpenAI API key for you.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openai</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">find_dotenv</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span>
+
+<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span>  <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">c</span><span class="o">/</span><span class="n">wh8mv84j2qg0hpjr19htwzq00000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_8184</span><span class="o">/</span><span class="mf">2213100486.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">find_dotenv</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;dotenv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="helper-function">
+<h3>helper function<a class="headerlink" href="#helper-function" title="Permalink to this heading">#</a></h3>
+<p>Throughout this course, we will use OpenAI’s <code class="docutils literal notranslate"><span class="pre">gpt-3.5-turbo</span></code> model and the <a class="reference external" href="https://platform.openai.com/docs/guides/chat">chat completions endpoint</a>.</p>
+<p>This helper function will make it easier to use prompts and look at the generated outputs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_completion</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">):</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}]</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># this is the degree of randomness of the model&#39;s output</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="prompting-principles">
+<h2>Prompting Principles<a class="headerlink" href="#prompting-principles" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Principle 1: Write clear and specific instructions</strong></p></li>
+<li><p><strong>Principle 2: Give the model time to “think”</strong></p></li>
+</ul>
+<section id="tactics">
+<h3>Tactics<a class="headerlink" href="#tactics" title="Permalink to this heading">#</a></h3>
+<section id="tactic-1-use-delimiters-to-clearly-indicate-distinct-parts-of-the-input">
+<h4>Tactic 1: Use delimiters to clearly indicate distinct parts of the input<a class="headerlink" href="#tactic-1-use-delimiters-to-clearly-indicate-distinct-parts-of-the-input" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Delimiters can be anything like: ```, “””, &lt; &gt;, <code class="docutils literal notranslate"><span class="pre">&lt;tag&gt;</span> <span class="pre">&lt;/tag&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You should express what you want a model to do by \ </span>
+<span class="s2">providing instructions that are as clear and \ </span>
+<span class="s2">specific as you can possibly make them. \ </span>
+<span class="s2">This will guide the model towards the desired output, \ </span>
+<span class="s2">and reduce the chances of receiving irrelevant \ </span>
+<span class="s2">or incorrect responses. Don&#39;t confuse writing a \ </span>
+<span class="s2">clear prompt with writing a short prompt. \ </span>
+<span class="s2">In many cases, longer prompts provide more clarity \ </span>
+<span class="s2">and context for the model, which can lead to \ </span>
+<span class="s2">more detailed and relevant outputs.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Summarize the text delimited by triple backticks \ </span>
+<span class="s2">into a single sentence.</span>
+<span class="s2">```</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">get_completion</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>output:
+To guide a model towards the desired output and reduce irrelevant or incorrect responses, it is important to provide clear and specific instructions, which may require longer prompts for more clarity and context.</p>
+</section>
+<section id="tactic-2-ask-for-a-structured-output">
+<h4>Tactic 2: Ask for a structured output<a class="headerlink" href="#tactic-2-ask-for-a-structured-output" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>JSON, HTML</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Generate a list of three made-up book titles along \ </span>
+<span class="s2">with their authors and genres. </span>
+<span class="s2">Provide them in JSON format with the following keys: </span>
+<span class="s2">book_id, title, author, genre.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">get_completion</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>[
+{
+“book_id”: 1,
+“title”: “The Lost City of Zorath”,
+“author”: “Aria Blackwood”,
+“genre”: “Fantasy”
+},
+{
+“book_id”: 2,
+“title”: “The Last Survivors”,
+“author”: “Ethan Stone”,
+“genre”: “Science Fiction”
+},
+{
+“book_id”: 3,
+“title”: “The Secret Life of Bees”,
+“author”: “Lila Rose”,
+“genre”: “Romance”
+}
+]</p>
+</section>
+<section id="tactic-3-ask-the-model-to-check-whether-conditions-are-satisfied">
+<h4>Tactic 3: Ask the model to check whether conditions are satisfied<a class="headerlink" href="#tactic-3-ask-the-model-to-check-whether-conditions-are-satisfied" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Making a cup of tea is easy! First, you need to get some \ </span>
+<span class="s2">water boiling. While that&#39;s happening, \ </span>
+<span class="s2">grab a cup and put a tea bag in it. Once the water is \ </span>
+<span class="s2">hot enough, just pour it over the tea bag. \ </span>
+<span class="s2">Let it sit for a bit so the tea can steep. After a \ </span>
+<span class="s2">few minutes, take out the tea bag. If you \ </span>
+<span class="s2">like, you can add some sugar or milk to taste. \ </span>
+<span class="s2">And that&#39;s it! You&#39;ve got yourself a delicious \ </span>
+<span class="s2">cup of tea to enjoy.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You will be provided with text delimited by triple quotes. </span>
+<span class="s2">If it contains a sequence of instructions, \ </span>
+<span class="s2">re-write those instructions in the following format:</span>
+
+<span class="s2">Step 1 - ...</span>
+<span class="s2">Step 2 - …</span>
+<span class="s2">…</span>
+<span class="s2">Step N - …</span>
+
+<span class="s2">If the text does not contain a sequence of instructions, \ </span>
+<span class="s2">then simply write </span><span class="se">\&quot;</span><span class="s2">No steps provided.</span><span class="se">\&quot;</span><span class="s2"></span>
+
+<span class="se">\&quot;\&quot;\&quot;</span><span class="si">{</span><span class="n">text_1</span><span class="si">}</span><span class="se">\&quot;\&quot;\&quot;</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">get_completion</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Completion for Text 1:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Completion for Text 1:
+Step 1 - Get some water boiling.
+Step 2 - Grab a cup and put a tea bag in it.
+Step 3 - Once the water is hot enough, pour it over the tea bag.
+Step 4 - Let it sit for a bit so the tea can steep.
+Step 5 - After a few minutes, take out the tea bag.
+Step 6 - Add some sugar or milk to taste.
+Step 7 - Enjoy your delicious cup of tea!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">The sun is shining brightly today, and the birds are </span><span class="se">\</span>
+<span class="s2">singing. It&#39;s a beautiful day to go for a \ </span>
+<span class="s2">walk in the park. The flowers are blooming, and the \ </span>
+<span class="s2">trees are swaying gently in the breeze. People \ </span>
+<span class="s2">are out and about, enjoying the lovely weather. \ </span>
+<span class="s2">Some are having picnics, while others are playing \ </span>
+<span class="s2">games or simply relaxing on the grass. It&#39;s a \ </span>
+<span class="s2">perfect day to spend time outdoors and appreciate the \ </span>
+<span class="s2">beauty of nature.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You will be provided with text delimited by triple quotes. </span>
+<span class="s2">If it contains a sequence of instructions, \ </span>
+<span class="s2">re-write those instructions in the following format:</span>
+
+<span class="s2">Step 1 - ...</span>
+<span class="s2">Step 2 - …</span>
+<span class="s2">…</span>
+<span class="s2">Step N - …</span>
+
+<span class="s2">If the text does not contain a sequence of instructions, \ </span>
+<span class="s2">then simply write </span><span class="se">\&quot;</span><span class="s2">No steps provided.</span><span class="se">\&quot;</span><span class="s2"></span>
+
+<span class="se">\&quot;\&quot;\&quot;</span><span class="si">{</span><span class="n">text_2</span><span class="si">}</span><span class="se">\&quot;\&quot;\&quot;</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">get_completion</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Completion for Text 2:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Completion for Text 2:
+No steps provided.</p>
+</section>
+<section id="tactic-4-few-shot-prompting">
+<h4>Tactic 4: “Few-shot” prompting<a class="headerlink" href="#tactic-4-few-shot-prompting" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Your task is to answer in a consistent style.</span>
+
+<span class="s2">&lt;child&gt;: Teach me about patience.</span>
+
+<span class="s2">&lt;grandparent&gt;: The river that carves the deepest \ </span>
+<span class="s2">valley flows from a modest spring; the \ </span>
+<span class="s2">grandest symphony originates from a single note; \ </span>
+<span class="s2">the most intricate tapestry begins with a solitary thread.</span>
+
+<span class="s2">&lt;child&gt;: Teach me about resilience.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">get_completion</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><grandparent>: Resilience is like a tree that bends with the wind but never breaks. It is the ability to bounce back from adversity and keep moving forward, even when things get tough. Just like a tree that grows stronger with each storm it weathers, resilience is a quality that can be developed and strengthened over time.</p>
+</section>
+</section>
+<section id="principle-2-give-the-model-time-to-think">
+<h3>Principle 2: Give the model time to “think”<a class="headerlink" href="#principle-2-give-the-model-time-to-think" title="Permalink to this heading">#</a></h3>
+<section id="tactic-1-specify-the-steps-required-to-complete-a-task">
+<h4>Tactic 1: Specify the steps required to complete a task<a class="headerlink" href="#tactic-1-specify-the-steps-required-to-complete-a-task" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">In a charming village, siblings Jack and Jill set out on \ </span>
+<span class="s2">a quest to fetch water from a hilltop \ </span>
+<span class="s2">well. As they climbed, singing joyfully, misfortune \ </span>
+<span class="s2">struck—Jack tripped on a stone and tumbled \ </span>
+<span class="s2">down the hill, with Jill following suit. \ </span>
+<span class="s2">Though slightly battered, the pair returned home to \ </span>
+<span class="s2">comforting embraces. Despite the mishap, \ </span>
+<span class="s2">their adventurous spirits remained undimmed, and they \ </span>
+<span class="s2">continued exploring with delight.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="c1"># example 1</span>
+<span class="n">prompt_1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Perform the following actions: </span>
+<span class="s2">1 - Summarize the following text delimited by triple </span><span class="se">\</span>
+<span class="s2">backticks with 1 sentence.</span>
+<span class="s2">2 - Translate the summary into French.</span>
+<span class="s2">3 - List each name in the French summary.</span>
+<span class="s2">4 - Output a json object that contains the following </span><span class="se">\</span>
+<span class="s2">keys: french_summary, num_names.</span>
+
+<span class="s2">Separate your answers with line breaks.</span>
+
+<span class="s2">Text:</span>
+<span class="s2">```</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">get_completion</span><span class="p">(</span><span class="n">prompt_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Completion for prompt 1:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ask-for-output-in-a-specified-format">
+<h4>Ask for output in a specified format<a class="headerlink" href="#ask-for-output-in-a-specified-format" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prompt_2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Your task is to perform the following actions: </span>
+<span class="s2">1 - Summarize the following text delimited by </span>
+<span class="s2">  &lt;&gt; with 1 sentence.</span>
+<span class="s2">2 - Translate the summary into French.</span>
+<span class="s2">3 - List each name in the French summary.</span>
+<span class="s2">4 - Output a json object that contains the </span>
+<span class="s2">  following keys: french_summary, num_names.</span>
+
+<span class="s2">Use the following format:</span>
+<span class="s2">Text: &lt;text to summarize&gt;</span>
+<span class="s2">Summary: &lt;summary&gt;</span>
+<span class="s2">Translation: &lt;summary translation&gt;</span>
+<span class="s2">Names: &lt;list of names in Italian summary&gt;</span>
+<span class="s2">Output JSON: &lt;json with summary and num_names&gt;</span>
+
+<span class="s2">Text: &lt;</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">get_completion</span><span class="p">(</span><span class="n">prompt_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Completion for prompt 2:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tactic-2-instruct-the-model-to-work-out-its-own-solution-before-rushing-to-a-conclusion">
+<h4>Tactic 2: Instruct the model to work out its own solution before rushing to a conclusion<a class="headerlink" href="#tactic-2-instruct-the-model-to-work-out-its-own-solution-before-rushing-to-a-conclusion" title="Permalink to this heading">#</a></h4>
+<p>prompt = f”””
+Determine if the student’s solution is correct or not.</p>
+<p>Question:
+I’m building a solar power installation and I need <br />
+help working out the financials.</p>
+<ul class="simple">
+<li><p>Land costs $100 / square foot</p></li>
+<li><p>I can buy solar panels for $250 / square foot</p></li>
+<li><p>I negotiated a contract for maintenance that will cost \
+me a flat $100k per year, and an additional $10 / square <br />
+foot
+What is the total cost for the first year of operations
+as a function of the number of square feet.</p></li>
+</ul>
+<p>Student’s Solution:
+Let x be the size of the installation in square feet.
+Costs:</p>
+<ol class="arabic simple">
+<li><p>Land cost: 100x</p></li>
+<li><p>Solar panel cost: 250x</p></li>
+<li><p>Maintenance cost: 100,000 + 100x
+Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000
+“””
+response = get_completion(prompt)
+print(response)</p></li>
+</ol>
+</section>
+<section id="note-that-the-student-s-solution-is-actually-not-correct">
+<h4>Note that the student’s solution is actually not correct.<a class="headerlink" href="#note-that-the-student-s-solution-is-actually-not-correct" title="Permalink to this heading">#</a></h4>
+</section>
+<section id="we-can-fix-this-by-instructing-the-model-to-work-out-its-own-solution-first">
+<h4>We can fix this by instructing the model to work out its own solution first.<a class="headerlink" href="#we-can-fix-this-by-instructing-the-model-to-work-out-its-own-solution-first" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Your task is to determine if the student&#39;s solution </span><span class="se">\</span>
+<span class="s2">is correct or not.</span>
+<span class="s2">To solve the problem do the following:</span>
+<span class="s2">- First, work out your own solution to the problem. </span>
+<span class="s2">- Then compare your solution to the student&#39;s solution \ </span>
+<span class="s2">and evaluate if the student&#39;s solution is correct or not. </span>
+<span class="s2">Don&#39;t decide if the student&#39;s solution is correct until </span>
+<span class="s2">you have done the problem yourself.</span>
+
+<span class="s2">Use the following format:</span>
+<span class="s2">Question:</span>
+<span class="s2">```</span>
+<span class="s2">question here</span>
+<span class="s2">```</span>
+<span class="s2">Student&#39;s solution:</span>
+<span class="s2">```</span>
+<span class="s2">student&#39;s solution here</span>
+<span class="s2">```</span>
+<span class="s2">Actual solution:</span>
+<span class="s2">```</span>
+<span class="s2">steps to work out the solution and your solution here</span>
+<span class="s2">```</span>
+<span class="s2">Is the student&#39;s solution the same as actual solution </span><span class="se">\</span>
+<span class="s2">just calculated:</span>
+<span class="s2">```</span>
+<span class="s2">yes or no</span>
+<span class="s2">```</span>
+<span class="s2">Student grade:</span>
+<span class="s2">```</span>
+<span class="s2">correct or incorrect</span>
+<span class="s2">```</span>
+
+<span class="s2">Question:</span>
+<span class="s2">```</span>
+<span class="s2">I&#39;m building a solar power installation and I need help </span><span class="se">\</span>
+<span class="s2">working out the financials. </span>
+<span class="s2">- Land costs $100 / square foot</span>
+<span class="s2">- I can buy solar panels for $250 / square foot</span>
+<span class="s2">- I negotiated a contract for maintenance that will cost </span><span class="se">\</span>
+<span class="s2">me a flat $100k per year, and an additional $10 / square </span><span class="se">\</span>
+<span class="s2">foot</span>
+<span class="s2">What is the total cost for the first year of operations </span><span class="se">\</span>
+<span class="s2">as a function of the number of square feet.</span>
+<span class="s2">``` </span>
+<span class="s2">Student&#39;s solution:</span>
+<span class="s2">```</span>
+<span class="s2">Let x be the size of the installation in square feet.</span>
+<span class="s2">Costs:</span>
+<span class="s2">1. Land cost: 100x</span>
+<span class="s2">2. Solar panel cost: 250x</span>
+<span class="s2">3. Maintenance cost: 100,000 + 100x</span>
+<span class="s2">Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</span>
+<span class="s2">```</span>
+<span class="s2">Actual solution:</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">get_completion</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="model-limitations-hallucinations">
+<h2>Model Limitations: Hallucinations<a class="headerlink" href="#model-limitations-hallucinations" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Boie is a real company, the product name is not real.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Tell me about AeroGlide UltraSlim Smart Toothbrush by Boie</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">get_completion</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="try-experimenting-on-your-own">
+<h2>Try experimenting on your own!<a class="headerlink" href="#try-experimenting-on-your-own" title="Permalink to this heading">#</a></h2>
+<section id="notes-on-using-the-openai-api-outside-of-this-classroom">
+<h3>Notes on using the OpenAI API outside of this classroom<a class="headerlink" href="#notes-on-using-the-openai-api-outside-of-this-classroom" title="Permalink to this heading">#</a></h3>
+<p>To install the OpenAI Python library:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install openai
+</pre></div>
+</div>
+<p>The library needs to be configured with your account’s secret key, which is available on the <a class="reference external" href="https://platform.openai.com/account/api-keys">website</a>.</p>
+<p>You can either set it as the <code class="docutils literal notranslate"><span class="pre">OPENAI_API_KEY</span></code> environment variable before using the library:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!export OPENAI_API_KEY=&#39;sk-...&#39;
+</pre></div>
+</div>
+<p>Or, set <code class="docutils literal notranslate"><span class="pre">openai.api_key</span></code> to its value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openai</span>
+<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;sk-...&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="a-note-about-the-backslash">
+<h3>A note about the backslash<a class="headerlink" href="#a-note-about-the-backslash" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In the course, we are using a backslash <code class="docutils literal notranslate"><span class="pre">\</span></code> to make the text fit on the screen without inserting newline ‘\n’ characters.</p></li>
+<li><p>GPT-3 isn’t really affected whether you insert newline characters or not.  But when working with LLMs in general, you may consider whether newline characters in your prompt may affect the model’s performance.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-function">helper function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompting-principles">Prompting Principles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tactics">Tactics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-1-use-delimiters-to-clearly-indicate-distinct-parts-of-the-input">Tactic 1: Use delimiters to clearly indicate distinct parts of the input</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-2-ask-for-a-structured-output">Tactic 2: Ask for a structured output</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-3-ask-the-model-to-check-whether-conditions-are-satisfied">Tactic 3: Ask the model to check whether conditions are satisfied</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-4-few-shot-prompting">Tactic 4: “Few-shot” prompting</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-2-give-the-model-time-to-think">Principle 2: Give the model time to “think”</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-1-specify-the-steps-required-to-complete-a-task">Tactic 1: Specify the steps required to complete a task</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ask-for-output-in-a-specified-format">Ask for output in a specified format</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tactic-2-instruct-the-model-to-work-out-its-own-solution-before-rushing-to-a-conclusion">Tactic 2: Instruct the model to work out its own solution before rushing to a conclusion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#note-that-the-student-s-solution-is-actually-not-correct">Note that the student’s solution is actually not correct.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-fix-this-by-instructing-the-model-to-work-out-its-own-solution-first">We can fix this by instructing the model to work out its own solution first.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-limitations-hallucinations">Model Limitations: Hallucinations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-experimenting-on-your-own">Try experimenting on your own!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-on-using-the-openai-api-outside-of-this-classroom">Notes on using the OpenAI API outside of this classroom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-about-the-backslash">A note about the backslash</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By isLinXu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, isLinXu.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

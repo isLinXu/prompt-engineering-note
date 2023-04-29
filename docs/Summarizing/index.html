@@ -350,7 +350,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -366,6 +368,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.1 文字总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.2 针对某种信息总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.3 尝试“提取”而不是“总结”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.4 针对多项信息总结</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -391,10 +404,30 @@ document.write(`
 </pre></div>
 </div>
 <p>你可以在Chat GPT网络界面中完成这项工作。我经常会这样做来总结文章，这样我就可以阅读更多文章的内容，而不仅仅是以前能读的那么少。如果你想以更加机械化的方式实现这一点，你可以在这节课中看到如何做到这一点。所以，让我们深入了解代码，看看你如何使用它来总结文本。因此，让我们从与之前相同的入门代码开始，导入OpenAI，加载API密钥，以及这个getCompletion助手函数。</p>
+<p><img alt="4-1" src="../_images/4-1.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="s1">&#39;m going to use as the running example, the task of summarising this product review. Got this panda plush toy from a daughter&#39;</span><span class="n">s</span> <span class="n">birthday</span> <span class="n">who</span> <span class="n">loves</span> <span class="n">it</span> <span class="ow">and</span> <span class="n">takes</span> <span class="n">it</span> <span class="n">everywhere</span> <span class="ow">and</span> <span class="n">so</span> <span class="n">on</span> <span class="ow">and</span> <span class="n">so</span> <span class="n">on</span><span class="o">.</span> <span class="n">If</span> <span class="n">you</span><span class="s1">&#39;re building an e-commerce website and there&#39;</span><span class="n">s</span> <span class="n">just</span> <span class="n">a</span> <span class="n">large</span> <span class="n">volume</span> <span class="n">of</span> <span class="n">reviews</span><span class="p">,</span> <span class="n">having</span> <span class="n">a</span> <span class="n">tool</span> <span class="n">to</span> <span class="n">summarise</span> <span class="n">the</span> <span class="n">lengthy</span> <span class="n">reviews</span> <span class="n">could</span> <span class="n">give</span> <span class="n">you</span> <span class="n">a</span> <span class="n">way</span> <span class="n">to</span> <span class="n">very</span> <span class="n">quickly</span> <span class="n">glance</span> <span class="n">over</span> <span class="n">more</span> <span class="n">reviews</span> <span class="n">to</span> <span class="n">get</span> <span class="n">a</span> <span class="n">better</span> <span class="n">sense</span> <span class="n">of</span> <span class="n">what</span> <span class="nb">all</span> <span class="n">your</span> <span class="n">customers</span> <span class="n">are</span> <span class="n">thinking</span><span class="o">.</span> <span class="n">So</span> <span class="n">here</span><span class="s1">&#39;s a prompt for generating a summary. Your task is to generate a short summary of a product review from e-commerce websites, summarise the review below and so on in at most 30 words. </span>
 </pre></div>
 </div>
 <p>我将使用一个运行示例，即对该产品评论进行摘要的任务。我得到了这个熊猫毛绒玩具作为女儿生日礼物，她非常喜欢并且带它到处走等等。如果你正在构建一个电子商务网站并且有大量的评论，那么一个可以总结冗长评论的工具可以让你很快地浏览更多的评论，以更好地了解所有客户的想法。因此，这是一个产生摘要的提示。你的任务是从电子商务网站的产品评论中生成一个简短的摘要，并在30个单词以内对评论进行总结等等。</p>
+<section id="id2">
+<h2>4.1 文字总结<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p><img alt="4-1" src="../_images/4-2.png" /></p>
+</section>
+<section id="id3">
+<h2>4.2 针对某种信息总结<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p><img alt="4-3" src="../_images/4-3.png" /></p>
+<p><img alt="4-4" src="../_images/4-4.png" /></p>
+</section>
+<section id="id4">
+<h2>4.3 尝试“提取”而不是“总结”<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p><img alt="4-5" src="../_images/4-5.png" /></p>
+</section>
+<section id="id5">
+<h2>4.4 针对多项信息总结<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p><img alt="4-5-1" src="../_images/4-5-1.png" /></p>
+<p><img alt="4-5-2" src="../_images/4-5-2.png" /></p>
+<p><img alt="4-5-3" src="../_images/4-5-3.png" /></p>
+</section>
 </section>
 
 
@@ -430,6 +463,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.1 文字总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.2 针对某种信息总结</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.3 尝试“提取”而不是“总结”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.4 针对多项信息总结</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -350,7 +350,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -366,6 +368,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.1 自定义对客户电子邮件的自动答复</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.2 提醒模型使用客户电子邮件中的详细信息</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -391,15 +402,19 @@ document.write(`
 </pre></div>
 </div>
 <p>因此，当你使用大型语言模型的这些功能时，请只在有助于人们的情况下负责任地使用它。在这个视频中，我们将通过一个例子来说明如何使用语言模型基于一些信息生成个性化的电子邮件。这封电子邮件被自称为来自AI机器人，正如安德鲁所提到的那样，这非常重要。</p>
-<p><img alt="6-1" src="../_images/6-1.png" /></p>
+<p><img alt="7-1" src="../_images/7-1.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">We</span><span class="s1">&#39;re also going to use another one of the models input parameters called temperature and this kind of allows you to vary the kind of degree of exploration and variety in the kind of models responses. So let&#39;</span><span class="n">s</span> <span class="n">get</span> <span class="n">into</span> <span class="n">it</span><span class="o">.</span> <span class="n">So</span> <span class="n">before</span> <span class="n">we</span> <span class="n">get</span> <span class="n">started</span> <span class="n">we</span><span class="s1">&#39;re going to kind of do the usual setup. So set up the OpenAI Python package and then also define our helper function getCompletion and now we&#39;</span><span class="n">re</span> <span class="n">going</span> <span class="n">to</span> <span class="n">write</span> <span class="n">a</span> <span class="n">custom</span> <span class="n">email</span> <span class="n">response</span> <span class="n">to</span> <span class="n">a</span> <span class="n">customer</span> <span class="n">review</span> <span class="ow">and</span> <span class="n">so</span> <span class="n">given</span> <span class="n">a</span> <span class="n">customer</span> <span class="n">review</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">sentiment</span> <span class="n">we</span><span class="s1">&#39;re going to generate a custom response. </span>
 </pre></div>
 </div>
 <p>我们还将使用模型的另一个输入参数，称为温度，这允许你变化模型响应的探索程度和多样性的程度。所以让我们开始吧。在我们开始之前，我们将进行通常的设置。因此，设置OpenAI Python包，然后定义我们的助手函数getCompletion，现在我们要编写一个针对客户评论的自定义电子邮件响应，因此，鉴于客户评论和情感，我们将生成一个自定义响应。</p>
+<p><img alt="7-2" src="../_images/7-2.png" /></p>
+<section id="id2">
+<h2>7.1 自定义对客户电子邮件的自动答复<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Now</span> <span class="n">we</span><span class="s1">&#39;re going to use the language model to generate a custom email to a customer based on a customer review and the sentiment of the review. So we&#39;</span><span class="n">ve</span> <span class="n">already</span> <span class="n">extracted</span> <span class="n">the</span> <span class="n">sentiment</span> <span class="n">using</span> <span class="n">the</span> <span class="n">kind</span> <span class="n">of</span> <span class="n">prompts</span> <span class="n">that</span> <span class="n">we</span> <span class="n">saw</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">inferring</span> <span class="n">video</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">customer</span> <span class="n">review</span> <span class="k">for</span> <span class="n">a</span> <span class="n">blender</span> <span class="ow">and</span> <span class="n">now</span> <span class="n">we</span><span class="s1">&#39;re going to customize the reply based on the sentiment. And so here the instruction is you are a customer service AI assistant your task is to send an email reply to about your customer given the customer email delimited by three backticks generate a reply to thank the customer for their review.</span>
 </pre></div>
 </div>
 <p>现在，我们将使用语言模型根据客户评价和评价情感生成一封定制的电子邮件。所以，我们已经使用类似于推断视频中看到的提示提取了情感，这是一款搅拌机的客户评论，现在我们将基于情感定制回复。指令是：作为一个客户服务AI助手，您的任务是发送一封电子邮件答复您的客户，给出分隔符为三个后引号的客户电子邮件并生成一个感谢客户评论的回复。</p>
+<p><img alt="7-2" src="../_images/7-3.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">the</span> <span class="n">sentiment</span> <span class="ow">is</span> <span class="n">positive</span> <span class="ow">or</span> <span class="n">neutral</span> <span class="n">thank</span> <span class="n">them</span> <span class="k">for</span> <span class="n">their</span> <span class="n">review</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">sentiment</span> <span class="ow">is</span> <span class="n">negative</span> <span class="n">apologize</span> <span class="ow">and</span> <span class="n">suggest</span> <span class="n">that</span> <span class="n">they</span> <span class="n">can</span> <span class="n">reach</span> <span class="n">out</span> <span class="n">to</span> <span class="n">customer</span> <span class="n">service</span><span class="o">.</span> <span class="n">Make</span> <span class="n">sure</span> <span class="n">to</span> <span class="n">use</span> <span class="n">specific</span> <span class="n">details</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">review</span> <span class="n">write</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">concise</span> <span class="ow">and</span> <span class="n">professional</span> <span class="n">tone</span> <span class="ow">and</span> <span class="n">sign</span> <span class="n">the</span> <span class="n">email</span> <span class="k">as</span> <span class="n">AI</span> <span class="n">customer</span> <span class="n">agent</span><span class="o">.</span> <span class="n">And</span> <span class="n">when</span> <span class="n">you</span><span class="s1">&#39;re using a language model to generate text that you&#39;</span><span class="n">re</span> <span class="n">going</span> <span class="n">to</span> <span class="n">show</span> <span class="n">to</span> <span class="n">a</span> <span class="n">user</span> <span class="n">it</span><span class="s1">&#39;s very important to have this kind of transparency and let the user know that the text they&#39;</span><span class="n">re</span> <span class="n">seeing</span> <span class="n">was</span> <span class="n">generated</span> <span class="n">by</span> <span class="n">AI</span><span class="o">.</span> <span class="n">And</span> <span class="n">then</span> <span class="n">we</span><span class="s1">&#39;ll just input the customer review and the review sentiment. And also note that this part isn&#39;</span><span class="n">t</span> <span class="n">necessarily</span> <span class="n">important</span> <span class="n">because</span> <span class="n">we</span> <span class="n">could</span> <span class="n">actually</span> <span class="n">use</span> <span class="n">this</span> <span class="n">prompt</span> <span class="n">to</span> <span class="n">also</span> <span class="n">extract</span> <span class="n">the</span> <span class="n">review</span> <span class="n">sentiment</span> <span class="ow">and</span> <span class="n">then</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">follow</span><span class="o">-</span><span class="n">up</span> <span class="n">step</span> <span class="n">write</span> <span class="n">the</span> <span class="n">email</span><span class="o">.</span> <span class="n">But</span> <span class="n">just</span> <span class="k">for</span> <span class="n">the</span> <span class="n">sake</span> <span class="n">of</span> <span class="n">the</span> <span class="n">example</span><span class="p">,</span> <span class="n">well</span><span class="p">,</span> <span class="n">we</span><span class="s1">&#39;ve already extracted the sentiment from the review. </span>
 </pre></div>
 </div>
@@ -412,6 +427,7 @@ document.write(`
 </pre></div>
 </div>
 <p>因此，在温度为零时，模型总是会选择最有可能的下一个词，这种情况下是“比萨”，而在较高的温度下，它也会选择其中一个可能性较小的词，而在更高的温度下，它甚至可能会选择“塔可”，这种情况下只有五个百分点的机会被选择。您可以想象，随着模型继续生成更多单词，这个最后的回答，“我最喜欢的食物是比萨”，它将会偏离第一个回答“我最喜欢的食物是塔可”。</p>
+<p><img alt="7-2" src="../_images/7-3-1.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">And</span> <span class="n">so</span><span class="p">,</span> <span class="k">as</span> <span class="n">the</span> <span class="n">kind</span> <span class="n">of</span> <span class="n">model</span> <span class="n">continues</span><span class="p">,</span> <span class="n">these</span> <span class="n">two</span> <span class="n">responses</span> <span class="n">will</span> <span class="n">become</span> <span class="n">more</span> <span class="ow">and</span> <span class="n">more</span> <span class="n">different</span><span class="o">.</span> <span class="n">In</span> <span class="n">general</span><span class="p">,</span> <span class="n">when</span> <span class="n">building</span> <span class="n">applications</span> <span class="n">where</span> <span class="n">you</span> <span class="n">want</span> <span class="n">a</span> <span class="n">kind</span> <span class="n">of</span> <span class="n">predictable</span> <span class="n">response</span><span class="p">,</span> <span class="n">I</span> <span class="n">would</span> <span class="n">recommend</span> <span class="n">using</span> <span class="n">temperature</span> <span class="n">zero</span><span class="o">.</span> <span class="n">Throughout</span> <span class="nb">all</span> <span class="n">of</span> <span class="n">these</span> <span class="n">videos</span><span class="p">,</span> <span class="n">we</span><span class="s1">&#39;ve been using temperature zero and I think that if you&#39;</span><span class="n">re</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">build</span> <span class="n">a</span> <span class="n">system</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">reliable</span> <span class="ow">and</span> <span class="n">predictable</span><span class="p">,</span> <span class="n">you</span> <span class="n">should</span> <span class="n">go</span> <span class="k">with</span> <span class="n">this</span><span class="o">.</span> <span class="n">If</span> <span class="n">you</span><span class="s1">&#39;re trying to kind of use the model in a more creative way where you might kind of want a kind of wider variety of different outputs, you might want to use a higher temperature. </span>
 </pre></div>
 </div>
@@ -420,14 +436,19 @@ document.write(`
 </pre></div>
 </div>
 <p>现在，让我们使用相同的提示并尝试生成一封电子邮件，但让我们使用更高的温度。在我们一直在使用的getCompletion函数中，我们已经指定了一个模型和温度，但我们已经将它们设置为默认值。现在，让我们尝试改变温度。所以，我们将使用提示，然后尝试温度0.7。因此，使用温度为0时，每次执行相同的提示，您都应该期望相同的完成方式。而温度为0.7时，每次都会得到不同的输出。</p>
+</section>
+<section id="id3">
+<h2>7.2 提醒模型使用客户电子邮件中的详细信息<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">So</span><span class="p">,</span> <span class="n">here</span> <span class="n">we</span> <span class="n">have</span> <span class="n">our</span> <span class="n">email</span><span class="p">,</span> <span class="ow">and</span> <span class="k">as</span> <span class="n">you</span> <span class="n">can</span> <span class="n">see</span><span class="p">,</span> <span class="n">it</span><span class="s1">&#39;s different to the email that we kind of received previously. And let&#39;</span><span class="n">s</span> <span class="n">just</span> <span class="n">execute</span> <span class="n">it</span> <span class="n">again</span><span class="p">,</span> <span class="n">to</span> <span class="n">show</span> <span class="n">that</span> <span class="n">we</span><span class="s1">&#39;ll get a different email again. And here we have another different email. And so, I recommend that you kind of play around with temperature yourself. Maybe you could pause the video now and try this prompt with a variety of different temperatures, just to see how the outputs vary. </span>
 </pre></div>
 </div>
 <p>所以，这就是我们的电子邮件，你可以看到，它与我们之前收到的电子邮件不同。让我们再次执行它，以展示我们将再次收到不同的电子邮件。在这里，我们又收到了另一个不同的电子邮件。因此，我建议你自己调整一下温度来尝试。也许你可以暂停视频，用不同的温度来尝试这个提示，看看输出结果如何变化。</p>
+<p><img alt="7-2" src="../_images/7-4.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">So</span><span class="p">,</span> <span class="n">to</span> <span class="n">summarise</span><span class="p">,</span> <span class="n">at</span> <span class="n">higher</span> <span class="n">temperatures</span><span class="p">,</span> <span class="n">the</span> <span class="n">outputs</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">model</span> <span class="n">are</span> <span class="n">kind</span> <span class="n">of</span> <span class="n">more</span> <span class="n">random</span><span class="o">.</span> <span class="n">You</span> <span class="n">can</span> <span class="n">almost</span> <span class="n">think</span> <span class="n">of</span> <span class="n">it</span> <span class="k">as</span> <span class="n">that</span> <span class="n">at</span> <span class="n">higher</span> <span class="n">temperatures</span><span class="p">,</span> <span class="n">the</span> <span class="n">assistant</span> <span class="ow">is</span> <span class="n">more</span> <span class="n">distractible</span><span class="p">,</span> <span class="n">but</span> <span class="n">maybe</span> <span class="n">more</span> <span class="n">creative</span><span class="o">.</span> <span class="n">In</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">video</span><span class="p">,</span> <span class="n">we</span><span class="s1">&#39;re going to talk more about the Chat Completions Endpoint format, and how you can create a custom chatbot using this format. </span>
 </pre></div>
 </div>
 <p>因此，总结一下，当温度较高时，模型的输出更具随机性。你几乎可以把它看作是在高温下，助手更容易分心，但也许更有创造力。在下一个视频中，我们将更多地谈论聊天完成节点的格式，以及如何使用该格式创建自定义聊天机器人。</p>
+</section>
 </section>
 
 
@@ -463,6 +484,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.1 自定义对客户电子邮件的自动答复</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.2 提醒模型使用客户电子邮件中的详细信息</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

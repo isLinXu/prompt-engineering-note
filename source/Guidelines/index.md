@@ -17,11 +17,16 @@ In this video, Isa will present some guidelines for prompting to help you get th
 
 在这个视频中，Isa将提出一些提示指南，帮助您获得您想要的结果。尤其是，她将介绍如何编写提示以有效地进行提示工程的两个关键原则。稍后，当她演示Jupyter Notebook示例时，我也鼓励您随时暂停视频，自己运行代码，以便您可以看到输出结果是什么样子的，甚至更改确切的提示并尝试几种不同的变化，以获得提示输入和输出的经验。
 
+![2-1](./imgs/2-1.png)
+
 ```
 Before we get started, we need to do a little bit of setup. Throughout the course, we'll use the OpenAI Python library to access the OpenAI API. And if you haven't installed this Python library already, you could install it using PIP, like this. PIP install openai. I actually already have this package installed, so I'm not going to do that. And then what you would do next is import OpenAI and then you would set your OpenAI API key, which is a secret key. 
 ```
 
 因此，我将概述一些原则和策略，这些原则和策略在使用ChatGBT等语言模型时将非常有用。我将首先对它们进行高层次的概述，然后我们将使用示例应用具体的策略。我们将在整个课程中使用这些相同的策略。因此，对于原则而言，第一个原则是编写清晰具体的指令。第二个原则是给模型充足的时间来思考。
+
+
+![2-1](./imgs/2-2.png)
 
 ```
 So that's this function, getCompletion, that just takes in a prompt and will return the completion for that prompt. Now let's dive into our first principle, which is write clear and specific instructions. You should express what you want a model to do by providing instructions that are as clear and specific as you can possibly make them. This will guide the model towards the desired output and reduce the chance that you get irrelevant or incorrect responses. Don't confuse writing a clear prompt with writing a short prompt, because in many cases, longer prompts actually provide more clarity and context for the model, which can actually lead to more detailed and relevant outputs. The first tactic to help you write clear and specific instructions is to use delimiters to clearly indicate distinct parts of the input. And let me show you an example. 
@@ -69,6 +74,8 @@ So let me show you an example. So in this prompt, we're telling the model that i
 
 这里我来举一个例子。对于这个提示，我们告诉模型它的任务是以一致的风格回答问题，我们提供了一个孩子和祖父之间的对话示例。孩子说：“教我耐心”，祖父用类比的方式回答。既然我们要求模型用一致的语气回答，现在我们说：“教我关于韧性”。由于模型已经有了这个少量示例，它会用类似的语气回答下一个任务。它会回答韧性就像能被风吹弯却从不折断的树等等。这些是我们针对第一个原则的四种策略，即给模型明确具体的指令。
 
+![2-1](./imgs/2-3.png)
+
 
 请帮我用中文进行全文翻译下面这段英文，并结构化输出为中文文本段落
 
@@ -77,6 +84,8 @@ So this is a simple example of how we can give the model a clear and specific in
 ```
 
 这是一个简单的示例，展示了我们如何给模型提供明确具体的指令。第二原则是给模型充足的思考时间。如果模型由于急于得出错误的结论而出现了推理错误，您可以尝试重新构造查询，要求模型在提供最终答案之前进行一系列相关推理。另一种思考方式是，如果您给模型一个时间太短或用太少的字数来完成的任务，它可能会猜测答案，这个答案很可能是错误的。你知道，这对一个人来说也一样。如果你让某人在没有时间计算出答案的情况下完成一道复杂的数学题，他们很可能会犯错。所以在这些情况下，您可以指示模型多花时间思考问题，这意味着它在任务上花费更多的计算力。现在我们将介绍第二原则的一些策略，并进行一些例子。我们的第一个策略是明确说明完成任务所需的步骤。
+
+![2-1](./imgs/2-4.png)
 
 ```
 So first, let me copy over a paragraph. And in this paragraph, we just kind of have a description of the story of Jack and Jill. Okay, now I'll copy over a prompt. So in this prompt, the instructions are perform the following actions. First, summarize the following text delimited by triple backticks with one sentence. Second, translate the summary into French. Third, list each name in the French summary. And fourth, output a JSON object that contains the following keys, French summary and num names. And then we want it to separate the answers with line breaks. And so we add the text, which is just this paragraph. 
@@ -109,6 +118,8 @@ So let me show you a prompt to do that. This prompt is a lot longer. So, what we
 ```
 
 让我向你展示一道提示题。这道题比较长，因此我们需要告诉模型问题的具体内容。你的任务是判断学生的解决方案是否正确。为了解决这个问题，你需要先自己解决问题，然后将自己的解决方案与学生的解决方案进行比较，评估学生的解决方案是否正确。在你自己解决问题之前，不要判断学生的解决方案是否正确，一定要确保自己已经清晰地理解了这个问题。因此，我们使用了同样的技巧，以以下格式输出结果。格式为：问题、学生的解决方案、正确的解决方案，以及解决方案是否符合，是或否。然后是学生的成绩，正确或错误。因此，我们有与上面相同的问题和解决方案。
+
+![2-1](./imgs/2-5.png)
 
 ```
 So now, if we run this cell... So, as you can see, the model actually went through and kind of did its own calculation first. And then it, you know, got the correct answer, which was 360x plus 100,000, not 450x plus 100,000. And then, when asked kind of to compare this to the student's solution, it realises they don't agree. And so, the student was actually incorrect. This is an example of how kind of the student's solution is correct. And the student's solution is actually incorrect. This is an example of how kind of asking the model to do a calculation itself and kind of breaking down the task into steps to give the model more time to think can help you get more accurate responses. So, next we'll talk about some of the model limitations, because I think it's really important to keep these in mind while you're kind of developing applications with large language models.

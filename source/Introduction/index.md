@@ -17,7 +17,7 @@ Welcome to this course on ChatGPT prompt engineering for developers. I'm thrille
 
 欢迎来到这门针对开发者的AIGPT提示工程课程。我很高兴能够与Isa Fulford一起授课。她是OpenAI的技术团队成员，她开发了流行的AIGPT检索插件，同时也教授人们如何在产品中使用LLM或大型语言模型技术，也为OpenAI食谱做出贡献。我很高兴能和她一起授课。同时我也很高兴在这里与大家分享一些提示最佳实践。实际上，关于提示已经有了很多互联网上的材料，例如“30个人人都必须知道的提示”。很多焦点都放在了AIGPT的Web版界面上，这使得很多人只用于完成特定的任务，而且经常是一次性的。但我认为，LLM大型语言模型作为一名开发人员的强大之处在于使用API调用LLM快速构建软件应用程序。实际上，AI Fund在我的团队与DeepLearning.AI的姊妹公司合作，为很多创业公司应用这些技术到许多不同的应用领域，看到LLM API可以使开发人员非常快速地构建应用程序实属令人兴奋。因此，在这门课程中，我们将与您分享一些您可以做到什么的可能性，以及如何最佳实践地完成这些任务。有很多要涵盖的内容。
 
-请帮我用中文进行全文翻译下面这段英文，并结构化输出为中文文本段落
+![1](./imgs/1.png)
 
 ```
 First you'll learn some prompting best practices for software development Then we'll cover some common use cases, summarizing, inferring, transforming, expanding And then you'll build a chatbot using an LLM We hope that this will spark your imagination about new applications that you can build So in the development of large language models or LLMs, there have been broadly two types of LLMs Which I'm going to refer to as base LLMs and instruction tuned LLMs 
@@ -48,6 +48,8 @@ But for most practical applications today, we would recommend most people instea
 ```
 
 对于大多数今天的实际应用，我们建议大多数人应该专注于经过调整的指令语言模型。这些模型更易于使用，而且由于OpenAI和其他LLM公司的工作，它们变得更加安全和更加符合要求。因此，本课程将专注于经过调整的指令语言模型的最佳实践，这是我们建议大多数应用程序使用的模型。在继续之前，我只想感谢OpenAI和DeepLearning.ai团队为我们提供的材料做出的贡献。我非常感谢OpenAI的Andrew Main、Joe Palermo、Boris Power、Ted Sanders和Lillian Weng。他们与我们一起进行了头脑风暴，对材料进行了审核，为这个短期课程的课程设置拼凑了课程计划。我也感谢深度学习方面Geoff Ladwig、Eddy Shyu和Tommy Nelson的工作。
+
+![1](./imgs/2.png)
 
 ```
 So when you use an instruction tuned LLMs, think of giving instructions to another person Say someone that's smart but doesn't know the specifics of your task So when an LLMs doesn't work, sometimes it's because the instructions weren't clear enough For example, if you were to say, please write me something about Alan Turing Well, in addition to that, it can be helpful to be clear about whether you want the text to focus on his scientific work Or his personal life or his role in history or something else And if you specify what you want the tone of the text to be, should it take on the tone like a professional journalist would write? Or is it more of a casual note that you dash off to a friend that hopes the OMS generate what you want? And of course, if you picture yourself asking, say, a fresh college graduate to carry out this task for you If you can even specify what snippets of text they should read in advance to write this text about Alan Turing Then that even better sets up that fresh college grad for success to carry out this task for you So in the next video, you see examples of how to be clear and specific, which is an important principle of prompting OMS And you also learn from either a second principle of prompting that is giving LLM time to think So with that, let's go on to the next video 

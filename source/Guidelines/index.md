@@ -160,8 +160,6 @@ So let me show you a prompt to do that. This prompt is a lot longer. So, what we
 
 让我向你展示一道提示题。这道题比较长，因此我们需要告诉模型问题的具体内容。你的任务是判断学生的解决方案是否正确。为了解决这个问题，你需要先自己解决问题，然后将自己的解决方案与学生的解决方案进行比较，评估学生的解决方案是否正确。在你自己解决问题之前，不要判断学生的解决方案是否正确，一定要确保自己已经清晰地理解了这个问题。因此，我们使用了同样的技巧，以以下格式输出结果。格式为：问题、学生的解决方案、正确的解决方案，以及解决方案是否符合，是或否。然后是学生的成绩，正确或错误。因此，我们有与上面相同的问题和解决方案。
 
-
-
 ```
 So now, if we run this cell... So, as you can see, the model actually went through and kind of did its own calculation first. And then it, you know, got the correct answer, which was 360x plus 100,000, not 450x plus 100,000. And then, when asked kind of to compare this to the student's solution, it realises they don't agree. And so, the student was actually incorrect. This is an example of how kind of the student's solution is correct. And the student's solution is actually incorrect. This is an example of how kind of asking the model to do a calculation itself and kind of breaking down the task into steps to give the model more time to think can help you get more accurate responses. 
 ```
@@ -190,3 +188,17 @@ And the reason that this can be kind of dangerous is that this actually sounds p
 ```
 
 这样做的危险在于，这听起来实际上是相当逼真的。因此，当您构建自己的应用程序时，请确保使用本笔记本中介绍的一些技术来避免出现这种情况。这是模型已知的弱点，我们正在积极努力应对。在您希望模型根据文本生成答案的情况下，另一种减少幻觉的策略是要求模型首先从文本中找到任何相关的引文，然后要求它使用那些引文来回答问题，并将答案追溯回源文件通常是非常有帮助的，可以减少这些幻觉的发生。大功告成！您已经完成提示指南，接下来您将进入下一个视频，了解迭代提示开发过程。
+
+## 4.本章文本总结
+
+```
+chatgpt prompt：请详细地概括并总结下面这段文本的主要内容，用吴恩达老师的口吻和语气来描述它
+```
+
+在这段视频中，Isa将教授两个有效地进行提示工程的关键原则：编写清晰具体的指令，并给模型充足的时间来思考。同时，本课程将使用OpenAI的聊天GPT模型，名为GPT Turbo，并使用聊天完成的端点。为了获得响应，可以使用一个名为getCompletion的帮助函数，并使用定界符将特定文本从提示的其余部分分隔开来，这可以避免提示注入。该视频还提供了一个示例，在这个示例中，Isa使用这些原则应用到一个段落的总结。
+
+这段文本主要在介绍如何给模型明确具体的指令和充足的思考时间，以提高模型的准确性和效率。其中，给模型明确具体的指令可以通过请求结构化输出、要求模型检查是否满足条件和提供执行任务的成功示例等方法实现。而给模型充足的思考时间则需要避免急于获得结果和过短的执行时间等问题，可以通过要求模型在提供最终答案之前进行一系列相关推理、指示模型多花时间思考问题等方式实现。这些方法将有助于提高模型的准确性和效率。
+
+这段文本主要是在介绍如何使用提示来完成一些任务，例如总结文本、翻译、输出JSON等等。作者给出了两个示例，一个是使用头衔的法语翻译，另一个则是使用指定的格式。同时，文本中也提到了可以指导模型在作出结论之前自行解决问题的策略，这通常会得到更好的结果。
+
+这段文本主要介绍了在使用大型语言模型进行文本问题回答时可能出现的问题，以及如何应对这些问题。首先，学生的解决方案往往是错误的，因此需要对模型进行引导，以便其能够正确解决问题。其次，模型具有知识边界，因此可能会产生幻觉，即编造听起来有道理但实际上不正确的想法，需要采用一些技术来减少这种情况。最后，需要注意模型的局限性，并积极应对。

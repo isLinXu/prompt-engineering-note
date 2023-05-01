@@ -17,24 +17,71 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import openai
-import os
+prompt = f"""
+Your task is to generate a short summary of a product \
+review from an ecommerce site. 
 
-from dotenv import load_dotenv, find_dotenv
-_ = load_dotenv(find_dotenv()) # read local .env file
+Summarize the review below, delimited by triple 
+backticks, in at most 30 words. 
 
-openai.api_key  = os.getenv('OPENAI_API_KEY')
+Review: ```{prod_review}```
+"""
+
+response = get_completion(prompt)
+print(response)
+
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/var/folders/7c/wh8mv84j2qg0hpjr19htwzq00000gn/T/ipykernel_37509/97201699.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;34m[0m[0m
-[0;32m----> 4[0;31m [0;32mfrom[0m [0mdotenv[0m [0;32mimport[0m [0mload_dotenv[0m[0;34m,[0m [0mfind_dotenv[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      5[0m [0m_[0m [0;34m=[0m [0mload_dotenv[0m[0;34m([0m[0mfind_dotenv[0m[0;34m([0m[0;34m)[0m[0;34m)[0m [0;31m# read local .env file[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m [0;34m[0m[0m
+[0;31mAuthenticationError[0m                       Traceback (most recent call last)
+[0;32m/var/folders/7c/wh8mv84j2qg0hpjr19htwzq00000gn/T/ipykernel_90158/3264853276.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      9[0m """
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0mresponse[0m [0;34m=[0m [0mget_completion[0m[0;34m([0m[0mprompt[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0mprint[0m[0;34m([0m[0mresponse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'dotenv'
-ModuleNotFoundError: No module named 'dotenv'
+[0;32m/var/folders/7c/wh8mv84j2qg0hpjr19htwzq00000gn/T/ipykernel_90158/4230256569.py[0m in [0;36mget_completion[0;34m(prompt, model)[0m
+[1;32m      1[0m [0;32mdef[0m [0mget_completion[0m[0;34m([0m[0mprompt[0m[0;34m,[0m [0mmodel[0m[0;34m=[0m[0;34m"gpt-3.5-turbo"[0m[0;34m)[0m[0;34m:[0m [0;31m# Andrew mentioned that the prompt/ completion paradigm is preferable for this class[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m     [0mmessages[0m [0;34m=[0m [0;34m[[0m[0;34m{[0m[0;34m"role"[0m[0;34m:[0m [0;34m"user"[0m[0;34m,[0m [0;34m"content"[0m[0;34m:[0m [0mprompt[0m[0;34m}[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m     response = openai.ChatCompletion.create(
+[0m[1;32m      4[0m         [0mmodel[0m[0;34m=[0m[0mmodel[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m         [0mmessages[0m[0;34m=[0m[0mmessages[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.9/site-packages/openai/api_resources/chat_completion.py[0m in [0;36mcreate[0;34m(cls, *args, **kwargs)[0m
+[1;32m     23[0m         [0;32mwhile[0m [0;32mTrue[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     24[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 25[0;31m                 [0;32mreturn[0m [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mcreate[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     26[0m             [0;32mexcept[0m [0mTryAgain[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     27[0m                 [0;32mif[0m [0mtimeout[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m [0;32mand[0m [0mtime[0m[0;34m.[0m[0mtime[0m[0;34m([0m[0;34m)[0m [0;34m>[0m [0mstart[0m [0;34m+[0m [0mtimeout[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.9/site-packages/openai/api_resources/abstract/engine_api_resource.py[0m in [0;36mcreate[0;34m(cls, api_key, api_base, api_type, request_id, api_version, organization, **params)[0m
+[1;32m    147[0m             [0murl[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    148[0m             [0mparams[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 149[0;31m         [0;34m)[0m [0;34m=[0m [0mcls[0m[0;34m.[0m[0m__prepare_create_request[0m[0;34m([0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    150[0m             [0mapi_key[0m[0;34m,[0m [0mapi_base[0m[0;34m,[0m [0mapi_type[0m[0;34m,[0m [0mapi_version[0m[0;34m,[0m [0morganization[0m[0;34m,[0m [0;34m**[0m[0mparams[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    151[0m         )
+
+[0;32m~/opt/anaconda3/lib/python3.9/site-packages/openai/api_resources/abstract/engine_api_resource.py[0m in [0;36m__prepare_create_request[0;34m(cls, api_key, api_base, api_type, api_version, organization, **params)[0m
+[1;32m    104[0m             [0mparams[0m[0;34m[[0m[0;34m"timeout"[0m[0;34m][0m [0;34m=[0m [0mMAX_TIMEOUT[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    105[0m [0;34m[0m[0m
+[0;32m--> 106[0;31m         requestor = api_requestor.APIRequestor(
+[0m[1;32m    107[0m             [0mapi_key[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    108[0m             [0mapi_base[0m[0;34m=[0m[0mapi_base[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.9/site-packages/openai/api_requestor.py[0m in [0;36m__init__[0;34m(self, key, api_base, api_type, api_version, organization)[0m
+[1;32m    128[0m     ):
+[1;32m    129[0m         [0mself[0m[0;34m.[0m[0mapi_base[0m [0;34m=[0m [0mapi_base[0m [0;32mor[0m [0mopenai[0m[0;34m.[0m[0mapi_base[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 130[0;31m         [0mself[0m[0;34m.[0m[0mapi_key[0m [0;34m=[0m [0mkey[0m [0;32mor[0m [0mutil[0m[0;34m.[0m[0mdefault_api_key[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    131[0m         self.api_type = (
+[1;32m    132[0m             [0mApiType[0m[0;34m.[0m[0mfrom_str[0m[0;34m([0m[0mapi_type[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/opt/anaconda3/lib/python3.9/site-packages/openai/util.py[0m in [0;36mdefault_api_key[0;34m()[0m
+[1;32m    184[0m         [0;32mreturn[0m [0mopenai[0m[0;34m.[0m[0mapi_key[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    185[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 186[0;31m         raise openai.error.AuthenticationError(
+[0m[1;32m    187[0m             [0;34m"No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://onboard.openai.com for details, or email support@openai.com if you have any questions."[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    188[0m         )
+
+[0;31mAuthenticationError[0m: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://onboard.openai.com for details, or email support@openai.com if you have any questions.
+AuthenticationError: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://onboard.openai.com for details, or email support@openai.com if you have any questions.
 

@@ -404,20 +404,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">c</span><span class="o">/</span><span class="n">wh8mv84j2qg0hpjr19htwzq00000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_37565</span><span class="o">/</span><span class="mf">3729526491.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">openai</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">find_dotenv</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span> <span class="c1"># read local .env file</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;dotenv&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -457,6 +443,59 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">get_completion_from_messages</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AuthenticationError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">c</span><span class="o">/</span><span class="n">wh8mv84j2qg0hpjr19htwzq00000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_90240</span><span class="o">/</span><span class="mf">861056811.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">response</span> <span class="o">=</span> <span class="n">get_completion_from_messages</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="nn">/var/folders/7c/wh8mv84j2qg0hpjr19htwzq00000gn/T/ipykernel_90240/1777265557.py</span> in <span class="ni">get_completion_from_messages</span><span class="nt">(messages, model, temperature)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">def</span> <span class="nf">get_completion_from_messages</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/openai/api_resources/chat_completion.py</span> in <span class="ni">create</span><span class="nt">(cls, *args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">25</span>                 <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>             <span class="k">except</span> <span class="n">TryAgain</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>                 <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">start</span> <span class="o">+</span> <span class="n">timeout</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/openai/api_resources/abstract/engine_api_resource.py</span> in <span class="ni">create</span><span class="nt">(cls, api_key, api_base, api_type, request_id, api_version, organization, **params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>             <span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>             <span class="n">params</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">149</span>         <span class="p">)</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__prepare_create_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span>             <span class="n">api_key</span><span class="p">,</span> <span class="n">api_base</span><span class="p">,</span> <span class="n">api_type</span><span class="p">,</span> <span class="n">api_version</span><span class="p">,</span> <span class="n">organization</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>         <span class="p">)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/openai/api_resources/abstract/engine_api_resource.py</span> in <span class="ni">__prepare_create_request</span><span class="nt">(cls, api_key, api_base, api_type, api_version, organization, **params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>             <span class="n">params</span><span class="p">[</span><span class="s2">&quot;timeout&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAX_TIMEOUT</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span> 
+<span class="ne">--&gt; </span><span class="mi">106</span>         <span class="n">requestor</span> <span class="o">=</span> <span class="n">api_requestor</span><span class="o">.</span><span class="n">APIRequestor</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>             <span class="n">api_key</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>             <span class="n">api_base</span><span class="o">=</span><span class="n">api_base</span><span class="p">,</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/openai/api_requestor.py</span> in <span class="ni">__init__</span><span class="nt">(self, key, api_base, api_type, api_version, organization)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span>     <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>         <span class="bp">self</span><span class="o">.</span><span class="n">api_base</span> <span class="o">=</span> <span class="n">api_base</span> <span class="ow">or</span> <span class="n">openai</span><span class="o">.</span><span class="n">api_base</span>
+<span class="ne">--&gt; </span><span class="mi">130</span>         <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">key</span> <span class="ow">or</span> <span class="n">util</span><span class="o">.</span><span class="n">default_api_key</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span>         <span class="bp">self</span><span class="o">.</span><span class="n">api_type</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span>             <span class="n">ApiType</span><span class="o">.</span><span class="n">from_str</span><span class="p">(</span><span class="n">api_type</span><span class="p">)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/openai/util.py</span> in <span class="ni">default_api_key</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span>         <span class="k">return</span> <span class="n">openai</span><span class="o">.</span><span class="n">api_key</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">186</span>         <span class="k">raise</span> <span class="n">openai</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">AuthenticationError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span>             <span class="s2">&quot;No API key provided. You can set your API key in code using &#39;openai.api_key = &lt;API-KEY&gt;&#39;, or you can set the environment variable OPENAI_API_KEY=&lt;API-KEY&gt;). If your API key is stored in a file, you can point the openai module at it with &#39;openai.api_key_path = &lt;PATH&gt;&#39;. You can generate API keys in the OpenAI web interface. See https://onboard.openai.com for details, or email support@openai.com if you have any questions.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span>         <span class="p">)</span>
+
+<span class="ne">AuthenticationError</span>: No API key provided. You can set your API key in code using &#39;openai.api_key = &lt;API-KEY&gt;&#39;, or you can set the environment variable OPENAI_API_KEY=&lt;API-KEY&gt;). If your API key is stored in a file, you can point the openai module at it with &#39;openai.api_key_path = &lt;PATH&gt;&#39;. You can generate API keys in the OpenAI web interface. See https://onboard.openai.com for details, or email support@openai.com if you have any questions.
 </pre></div>
 </div>
 </div>

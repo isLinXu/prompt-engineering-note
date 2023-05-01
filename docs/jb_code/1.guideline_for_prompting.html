@@ -429,20 +429,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">c</span><span class="o">/</span><span class="n">wh8mv84j2qg0hpjr19htwzq00000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_37484</span><span class="o">/</span><span class="mf">2213100486.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">os</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">find_dotenv</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;dotenv&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <section id="helper-function">
 <h3>helper function<a class="headerlink" href="#helper-function" title="Permalink to this heading">#</a></h3>
@@ -498,6 +484,61 @@ document.write(`
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">get_completion</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+AuthenticationError                       Traceback (most recent call last)
+/var/folders/7c/wh8mv84j2qg0hpjr19htwzq00000gn/T/ipykernel_90119/2496532566.py in &lt;module&gt;
+     16 ```{text}```
+     17 &quot;&quot;&quot;
+---&gt; 18 response = get_completion(prompt)
+     19 print(response)
+
+/var/folders/7c/wh8mv84j2qg0hpjr19htwzq00000gn/T/ipykernel_90119/3720659259.py in get_completion(prompt, model)
+      1 def get_completion(prompt, model=&quot;gpt-3.5-turbo&quot;):
+      2     messages = [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}]
+----&gt; 3     response = openai.ChatCompletion.create(
+      4         model=model,
+      5         messages=messages,
+
+~/opt/anaconda3/lib/python3.9/site-packages/openai/api_resources/chat_completion.py in create(cls, *args, **kwargs)
+     23         while True:
+     24             try:
+---&gt; 25                 return super().create(*args, **kwargs)
+     26             except TryAgain as e:
+     27                 if timeout is not None and time.time() &gt; start + timeout:
+
+~/opt/anaconda3/lib/python3.9/site-packages/openai/api_resources/abstract/engine_api_resource.py in create(cls, api_key, api_base, api_type, request_id, api_version, organization, **params)
+    147             url,
+    148             params,
+--&gt; 149         ) = cls.__prepare_create_request(
+    150             api_key, api_base, api_type, api_version, organization, **params
+    151         )
+
+~/opt/anaconda3/lib/python3.9/site-packages/openai/api_resources/abstract/engine_api_resource.py in __prepare_create_request(cls, api_key, api_base, api_type, api_version, organization, **params)
+    104             params[&quot;timeout&quot;] = MAX_TIMEOUT
+    105 
+--&gt; 106         requestor = api_requestor.APIRequestor(
+    107             api_key,
+    108             api_base=api_base,
+
+~/opt/anaconda3/lib/python3.9/site-packages/openai/api_requestor.py in __init__(self, key, api_base, api_type, api_version, organization)
+    128     ):
+    129         self.api_base = api_base or openai.api_base
+--&gt; 130         self.api_key = key or util.default_api_key()
+    131         self.api_type = (
+    132             ApiType.from_str(api_type)
+
+~/opt/anaconda3/lib/python3.9/site-packages/openai/util.py in default_api_key()
+    184         return openai.api_key
+    185     else:
+--&gt; 186         raise openai.error.AuthenticationError(
+    187             &quot;No API key provided. You can set your API key in code using &#39;openai.api_key = &lt;API-KEY&gt;&#39;, or you can set the environment variable OPENAI_API_KEY=&lt;API-KEY&gt;). If your API key is stored in a file, you can point the openai module at it with &#39;openai.api_key_path = &lt;PATH&gt;&#39;. You can generate API keys in the OpenAI web interface. See https://onboard.openai.com for details, or email support@openai.com if you have any questions.&quot;
+    188         )
+
+AuthenticationError: No API key provided. You can set your API key in code using &#39;openai.api_key = &lt;API-KEY&gt;&#39;, or you can set the environment variable OPENAI_API_KEY=&lt;API-KEY&gt;). If your API key is stored in a file, you can point the openai module at it with &#39;openai.api_key_path = &lt;PATH&gt;&#39;. You can generate API keys in the OpenAI web interface. See https://onboard.openai.com for details, or email support@openai.com if you have any questions.
 </pre></div>
 </div>
 </div>

@@ -11,6 +11,7 @@
 - [wangxuqi/*Prompt*-*Engineering*-Guide-Chinese](https://github.com/wangxuqi/Prompt-Engineering-Guide-Chinese)(Prompt工程师指南，源自英文版，但增加了AIGC的prompt部分，为了降低同学们的学习门槛，翻译更新)
 - [promptslab/Awesome-*Prompt*-*Engineering*](https://github.com/promptslab/Awesome-Prompt-Engineering)(This repository contains a hand-curated resources for Prompt Engineering with a focus on Generative Pre-trained Transformer (GPT), ChatGPT, PaLM etc)
 - [yunwei37/*Prompt*-*Engineering*-Guide-zh-CN](https://github.com/yunwei37/Prompt-Engineering-Guide-zh-CN)(🐙 关于提示词工程（prompt）的指南、论文、讲座、笔记本和资源大全（自动持续更新）)
+- https://github.com/yzfly/wonderful-prompts(🔥中文 prompt 精选🔥，ChatGPT 使用指南，提升 ChatGPT 可玩性和可用性！🚀)
 
 ---
 

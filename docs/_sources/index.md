@@ -72,17 +72,25 @@ apps/index.md
 
   <img width="824" alt="sum_context" src="https://user-images.githubusercontent.com/59380685/235310262-b82a8243-3e72-4a12-b36a-ef24206c563e.png" style="zoom:50%;" >
 
-- 3.整理了实践过程中对应的jupyterbook代码，位置在： [jb_code](./jb_code) （可以在本地化部署环境运行）；
+- 3.整理了实践过程中对应的jupyterbook代码，位置在： [jb_code](./source/jb_code) （可以在本地化部署环境运行）；
 
   <img width="1235" alt="jb_code" src="https://user-images.githubusercontent.com/59380685/235310289-7f787cfd-2277-4722-97f8-2f30605321f6.png" style="zoom:50%;" >
 
 - 4.基于notebook代码制作shell的cli命令脚本(更新中)
 
-- 5.整理了提示工程相关的awesome的项目清单(更新中)
+  ```shell
+  python source/cli/cli_py.py --prompt "hello chatgpt" --model "gpt-3.5"
+  ```
+
+<img width="837" alt="gen_code" src="https://user-images.githubusercontent.com/59380685/235404063-3b64ae5c-df09-4b3f-a687-5f2b05b005c3.png" style="zoom: 67%;" >
+
+<img width="755" alt="gen_code1" src="https://user-images.githubusercontent.com/59380685/235404104-338eae8f-e170-4b44-a4a3-55005562a179.png" style="zoom: 67%;" >
+
+
+- 5.整理了提示工程相关的awesome的项目清单(更新中)：
+  https://islinxu.github.io/prompt-engineering-note/projects/index.html
 
 - ... ...
-
-
 
 ## 致谢
 

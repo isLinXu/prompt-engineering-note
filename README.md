@@ -78,7 +78,17 @@ apps/index.md
 
 - 4.基于notebook代码制作shell的cli命令脚本(更新中)
 
-- 5.整理了提示工程相关的awesome的项目清单(更新中)
+  ```shell
+  python source/cli/cli_py.py --prompt "hello chatgpt" --model "gpt-3.5"
+  ```
+
+<img width="837" alt="gen_code" src="https://user-images.githubusercontent.com/59380685/235404063-3b64ae5c-df09-4b3f-a687-5f2b05b005c3.png" style="zoom: 67%;" >
+
+<img width="755" alt="gen_code1" src="https://user-images.githubusercontent.com/59380685/235404104-338eae8f-e170-4b44-a4a3-55005562a179.png" style="zoom: 67%;" >
+
+
+- 5.整理了提示工程相关的awesome的项目清单(更新中)：
+  https://islinxu.github.io/prompt-engineering-note/projects/index.html
 
 - ... ...
 

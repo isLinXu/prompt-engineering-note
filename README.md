@@ -46,7 +46,7 @@ ChatGPT Prompt Engineering Learning Notesfor Developers (面向开发者的ChatG
 8. 打造聊天机器人 (Chatbot) 
 9. 课程总结 (Conclusion)
 
-这个项目是对于**[ChatGPT Prompt Engineering for Developers](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/)**课程的学习笔记整理，这里要感谢**Isa Fulford (OpenAI)** 和 **Andrew Ng (DeepLearning.AI)** 提供的精彩课程，这些内容对于像我一样的初学者提供了很大的帮助，本着学习与实践的想法，做了下面这些事情，希望可以对提示工程学习者起到帮助：
+这个项目是对于[ChatGPT Prompt Engineering for Developers](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/)课程的学习笔记整理，这里要感谢**Isa Fulford (OpenAI)** 和 **Andrew Ng (DeepLearning.AI)** 提供的精彩课程，这些内容对于像我一样的初学者提供了很大的帮助，本着学习与实践的想法，做了下面这些事情，希望可以对提示工程学习者起到帮助：
 
 - 1.使用prompt+ChatGPT对课程内容原文进行机器翻译（全文由ChatGPT翻译生成，每一章都提供了中英对照）；
 

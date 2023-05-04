@@ -34,22 +34,6 @@ ChatGPT Prompt Engineering Learning Notesfor Developers (面向开发者的ChatG
 
 ## 主要内容
 
-```{toctree}
-:maxdepth: 2
-:caption: 目录
-Introduction/index.md
-Guidelines/index.md
-Iterative/index.md
-Summarizing/index.md
-Inferring/index.md
-Transforming/index.md
-Expanding/index.md
-Chatbot/index.md
-Conclusion/index.md
-projects/index.md
-apps/index.md
-```
-
 **课程章节** 
 
 1. 课程简介 (Introduction) 

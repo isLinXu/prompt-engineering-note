@@ -76,7 +76,7 @@ ChatGPT Prompt Engineering Learning Notesfor Developers (面向开发者的ChatG
 
 - 6.玩具项目: 引导ChatGPT实现生成[tiny-gpt]()(从零开始实现一个简单的gpt模型)
   
-  - 记录在[tiny-gpt](projects/tiny-gpt/tiny-gpt.md) 
+  - 记录在[tiny-gpt](source/projects/tiny-gpt/tiny-gpt.md) 
   
   ![tiny-gpt](https://user-images.githubusercontent.com/59380685/236223231-ed5e44d3-7b43-4ab2-a5cd-22e791d4ae28.png)
   
